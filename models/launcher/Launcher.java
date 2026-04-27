@@ -18,13 +18,17 @@ public abstract class Launcher {
         this.mustBeManned = mustBeManned;
     }
 
-    public String getName() {
-         return name; 
-        }
     public int getPrice() {
          return price; 
         }
     public int getMaxFuel() {
          return maxFuel; 
         }
+    public String getName(){
+        return name;
+    }
+    @Override
+    public String toString(){
+        return "Launcher's name: " + getName();
+    }
 }

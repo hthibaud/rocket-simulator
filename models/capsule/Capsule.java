@@ -1,0 +1,18 @@
+package models.capsule;
+
+public class Capsule {
+
+    protected String name;
+    protected boolean isManned;
+    protected int maxPeople;
+    protected int price;
+    protected double weight;
+
+    public Capsule(String name, boolean isManned, int maxPeople, int price, double weight){
+        this.name = name;
+        this.isManned = isManned;
+        this.maxPeople = maxPeople;
+        this.price = price;
+        this.weight = weight;
+    }
+}

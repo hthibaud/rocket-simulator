@@ -1,6 +1,6 @@
 package models.capsule;
 
-public class Capsule {
+public abstract class Capsule {
 
     protected String name;
     protected boolean isManned;

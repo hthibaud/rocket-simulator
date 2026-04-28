@@ -65,7 +65,11 @@ public class Rocket {
     public double getTotalFuel(){
 
         return this.launcher.getMaxFuel();
-        
+
+    }
+    
+    public Capsule getCapsule(){
+        return this.capsule;
     }
     @Override
     public String toString(){

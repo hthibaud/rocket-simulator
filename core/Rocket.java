@@ -62,7 +62,7 @@ public class Rocket {
         return (this.launcher.getPayload() <= this.capsule.getWeight());
     }
 
-    public double getTotalFuel(){
+    public int getTotalFuel(){
 
         return this.launcher.getMaxFuel();
 
@@ -91,9 +91,9 @@ public class Rocket {
     @Override
     public String toString(){
         
-        return "Your rocket: " + this.name + "\n" + this.launcher.toString() 
+        return "Rocket: " + this.name + "\n" + this.launcher.toString() 
         + "\n" + this.capsule.toString() 
         + "\n" + this.boosters.toString() 
-        + "\nBudget of you rocket " + getTotalPrice() + "Millions€";
+        + "\n Price of you rocket: " + getTotalPrice() + "Millions€";
     }
 }

@@ -1,4 +1,4 @@
-package view;
+package simulator;
 
 public class ASCII {
     public String ASCIIRocket(){

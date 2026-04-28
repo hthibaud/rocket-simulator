@@ -15,13 +15,10 @@ public class Launch {
     private String reason;
     private final List<String> reports = new ArrayList<>();
 
-    public Launch(Rocket rocket, Mission mission, boolean success, double totalCost, String reason) {
+    public Launch(Rocket rocket, Mission mission) {
         this.date = java.time.LocalDate.now().toString();
         this.rocket = rocket;
         this.mission = mission;
-        this.success = success;
-        this.totalCost = totalCost;
-        this.reason = reason;
     }
 
     public double calculateMissionCost(Rocket myRocket, Mission myMission) {
@@ -36,15 +33,15 @@ public class Launch {
 
     public String isMissionSuccessful(Rocket myRocket, Mission myMission) {
         if (!verifyMissionCompatibility(myRocket, myMission)) {
-            return "Your mission to" + myMission.getName() + "has been canceled.\n CAUSE: Your capsule had to be habitated.";
+            return "Your mission to " + myMission.getName() + " has been canceled.\n CAUSE: Your capsule had to be habitated for this mission.";
         } else if (!verifyFuel(myRocket, myMission)) {
-            return "Your mission to" + myMission.getName() + "has been canceled.\n CAUSE: You had only" + myRocket.getTotalFuel() + "tons of fuel for " + myMission.calculateFuelNeeded(myRocket, myMission) + "tons of fuel needed.";
+            return "Your mission to " + myMission.getName() + " has been canceled.\n CAUSE: You had only had " + myRocket.getTotalFuel() + " tons of fuel but you needed " + myMission.calculateFuelNeeded(myRocket, myMission) + " tons of fuel for this mission.";
         } else if (!verifyTotalWeight(myRocket, myMission)) {
-            return "Your mission to" + myMission.getName() + "has been canceled.\n CAUSE: Your capsule's weight is " + myRocket.getCapsule().getWeight() + "tons, but your rocket can only handle" + myRocket.getLauncher().getPayload() + "tons.";
+            return "Your mission to " + myMission.getName() + " has been canceled.\n CAUSE: Your capsule's weight is " + myRocket.getCapsule().getWeight() + "tons, but your rocket can only handle" + myRocket.getLauncher().getPayload() + "tons.";
         } else if (!verifyNbBoosters(myRocket)) {
-            return "Your mission to" + myMission.getName() + "has been canceled.\n CAUSE: You had a maximum of " + myRocket.getLauncher().getMaxBoosters() + "boosters ot attach, but you attached" + myRocket.getNbBoosters(myRocket) + "boosters.";
+            return "Your mission to " + myMission.getName() + " has been canceled.\n CAUSE: You had a maximum of " + myRocket.getLauncher().getMaxBoosters() + "boosters ot attach, but you attached" + myRocket.getNbBoosters(myRocket) + "boosters.";
         } else if (verifyMissionCompatibility(myRocket, myMission) && verifyFuel(myRocket, myMission) && verifyTotalWeight(myRocket, myMission) && verifyNbBoosters(myRocket)) {
-            return "Your mission to" + myMission.getName() + "is a SUCCESS!";
+            return "Your mission to " + myMission.getName() + " is a SUCCESS!";
         } else {
             return "Problem here.";
         }

@@ -51,8 +51,7 @@ public abstract class Launcher {
             mustBeManned2 = "no";
         }
         return 
-        "\n" 
-        + getName() 
+        getName() 
         + "\nSpecs: " 
         + "\n   Must be manned: " + mustBeManned2
         + "\n   Payload: " + payload + " tons"

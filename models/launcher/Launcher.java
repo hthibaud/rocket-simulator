@@ -50,12 +50,14 @@ public abstract class Launcher {
         } else {
             mustBeManned2 = "no";
         }
-        return getName() 
+        return 
+        "\n" 
+        + getName() 
         + "\nSpecs: " 
         + "\n   Must be manned: " + mustBeManned2
-        + "\n   Payload: " + payload
-        + "\n   Max fuel: " + maxFuel
+        + "\n   Payload: " + payload + " tons"
+        + "\n   Max fuel: " + maxFuel + " tons"
         + "\n   Number max of boosters: " + maxBoosters
-        + "\n Price: " + price;  
+        + "\n   Price: " + price + "€";  
     }
 }

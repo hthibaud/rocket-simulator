@@ -28,16 +28,17 @@ public class IntMenu {
         System.out.println("5. History of your launches");
         System.out.println("6. Quit");
 
-        int choice = scanner.nextInt();
+        String choice = scanner.nextLine();
 
         switch (choice) {
 
-            case 1 -> missionsMenu();
-            case 2 -> componentsMenu();
-            case 3 -> buildRocketMenu();
-            case 4 -> launchRocket();
-            case 5 -> historyMenu();
-            case 6 -> quit();
+            case "1" -> missionsMenu();
+            case "2" -> componentsMenu();
+            case "3" -> buildRocketMenu();
+            case "4" -> launchRocket();
+            case "5" -> historyMenu();
+            case "6" -> quit();
+            default -> mainMenu();
         }
 
     }
@@ -45,12 +46,14 @@ public class IntMenu {
     public void missionsMenu(){
         utils.clearConsole();
         System.out.println("################# MISSIONS #################");
-        System.out.println("1. "+ catalog.getOrbit().toString());
-        System.out.println("2. "+ catalog.getISS().toString());
-        System.out.println("3. "+ catalog.getMoon().toString());
-        System.out.println("4. "+ catalog.getMars().toString());
+        System.out.println("\n1. "+ catalog.getOrbit().toString());
+        System.out.println("\n2. "+ catalog.getISS().toString());
+        System.out.println("\n3. "+ catalog.getMoon().toString());
+        System.out.println("\n4. "+ catalog.getMars().toString());
 
         System.out.println("\n(press enter to go back)");
+        scanner.nextLine();
+        mainMenu();
     }
 
     public void componentsMenu(){
@@ -61,14 +64,15 @@ public class IntMenu {
         System.out.println("3. Boosters");
         System.out.println("4. Back");
 
-        int choice = scanner.nextInt();
+        String choice = scanner.nextLine();
 
         switch (choice) {
 
-            case 1 -> launchersMenu();
-            case 2 -> capsulesMenu();
-            case 3 -> boostersMenu();
-            case 4 -> mainMenu();
+            case "1" -> launchersMenu();
+            case "2" -> capsulesMenu();
+            case "3" -> boostersMenu();
+            case "4" -> mainMenu();
+            default -> componentsMenu();
 
         }
     }
@@ -76,6 +80,7 @@ public class IntMenu {
     public void buildRocketMenu(){
 
     }
+
     public void launchRocket(){
         utils.clearConsole();
         System.out.println("Your mission is launched in 3...");
@@ -97,6 +102,8 @@ public class IntMenu {
         System.out.println("4. "+ catalog.getSLS().toString());
 
         System.out.println("\n(press enter to go back)");
+        scanner.nextLine();
+        mainMenu();
     }
 
     public void capsulesMenu(){
@@ -108,6 +115,8 @@ public class IntMenu {
         System.out.println("4. "+ catalog.getOrion().toString());
 
         System.out.println("\n(press enter to go back)");
+        scanner.nextLine();
+        mainMenu();
     }
 
     public void boostersMenu(){
@@ -118,12 +127,14 @@ public class IntMenu {
         System.out.println("3. "+ catalog.getSRB().toString());
 
         System.out.println("\n(press enter to go back)");
+        scanner.nextLine();
+        mainMenu();
     }
 
     public void historyMenu(){
         
     }
-    
+
     public void quit(){
         utils.clearConsole();
         System.out.println("Bye!");

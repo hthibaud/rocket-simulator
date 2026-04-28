@@ -45,6 +45,6 @@ public abstract class Capsule {
         + "\nSpecs: " 
         + "\n   Is manned: " + isManned2 + ", " +  maxPeople + " people max"
         + "\n   Weight: " + weight
-        + "\n Price: " + price;  
+        + "\n   Price: " + price;  
     }
 }

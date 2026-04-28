@@ -39,9 +39,9 @@ public abstract class Mission {
         return getName() 
         + "\nUseful information of this mission: " 
         + "\n   Must be manned: " + mustBeManned2
-        + "\n   Distance: " + distance
+        + "\n   Distance: " + distance + " km"
         + "\n   Duration: " + duration
         + "\n   Fuel Coefficient: " + fuelCoefficient
-        + "\n Price: depends on your rocke choices.";  
+        + "\n   Price: depends on your rocket building choices.";  
     }
 }

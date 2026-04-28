@@ -33,8 +33,8 @@ public class Program {
         utils.clearConsole();
         menu.startMenu();
         menu.mainMenu();
-        System.out.println(launch.isMissionSuccessful(myRocket, myMission));
-        scanner.nextLine();
-        System.out.println(myRocket.toString());
+        //System.out.println(launch.isMissionSuccessful(myRocket, myMission));
+        //scanner.nextLine();
+        //System.out.println(myRocket.toString());
     }
 }

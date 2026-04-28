@@ -35,6 +35,6 @@ public class Booster {
         + "\nSpecs: " 
         + "\n   Additional Thrust: " + additionalThrust + "kN"
         + "\n   Weight: " + weight
-        + "\n Price: " + price;  
+        + "\n   Price: " + price;  
     }
 }

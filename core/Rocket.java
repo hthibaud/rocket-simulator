@@ -114,8 +114,8 @@ public class Rocket {
     public String toString(){
         
         return "Rocket: " + this.name + "\n" + this.launcher.toString() 
-        + "\n" + this.capsule.toString() 
-        + "\n" + getBoosterstoString() 
-        + "\n Price of you rocket: " + getTotalPrice() + "Millions€";
+        + "\n   " + this.capsule.toString() 
+        + "\n   " + getBoosterstoString() 
+        + "\n   Price of you rocket: " + getTotalPrice() + "Millions€";
     }
 }

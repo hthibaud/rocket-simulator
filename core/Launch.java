@@ -6,13 +6,9 @@ import models.mission.Mission;
 
 public class Launch {
 
-    private Rocket rocket;
-    private Mission mission;
-    private boolean success;
-    private String date;
-    private double totalCost;
-    private boolean verdict;
-    private String reason;
+    private final Rocket rocket;
+    private final Mission mission;
+    private final String date;
     private final List<String> reports = new ArrayList<>();
 
     public Launch(Rocket rocket, Mission mission) {
@@ -25,8 +21,8 @@ public class Launch {
         return myRocket.getTotalPrice() + (myRocket.getTotalFuel() * 1200);
     }
 
-    public String generateAndAddReport() {
-        String report = "Launch report of the " + date + ": ";
+    public String generateAndAddReport(Rocket myRocket, Mission myMission) {
+        String report = "Launch report of the " + date + ": " + myRocket.toString() + myMission.toString();
         reports.add(report);
         return report;
     }

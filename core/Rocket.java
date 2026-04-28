@@ -68,7 +68,13 @@ public class Rocket {
     int boosterFuel = 0;
     
     for (Booster b : boosters) {
-        boosterFuel += 500; 
+        if (b.getName().equals("BE-3")){
+        boosterFuel += 250; 
+        } else if (b.getName().equals("EAP")){
+        boosterFuel += 3250; 
+        } else if (b.getName().equals("SRB")){
+        boosterFuel += 6250; 
+        }
     }
     
     return launcherFuel + boosterFuel;

@@ -28,6 +28,10 @@ public abstract class Capsule {
         return weight;
     }
 
+    public boolean getIsManned(){
+        return isManned;
+    }
+
     @Override
     public String toString(){
         return "Your capsule's name: " + getName();

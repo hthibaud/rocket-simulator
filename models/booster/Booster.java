@@ -20,6 +20,15 @@ public class Booster {
     public String getName(){
         return name;
     }
+
+    public double getWeight(){
+        return weight;
+    }
+
+    public int getAdditionalThrust(){
+        return additionalThrust;
+    }
+    
     @Override
     public String toString(){
         return "Your booster: " + getName();

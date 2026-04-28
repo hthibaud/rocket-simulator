@@ -43,6 +43,19 @@ public abstract class Launcher {
 
     @Override
     public String toString(){
-        return "Launcher's name: " + getName();
+        String mustBeManned2;
+
+        if (mustBeManned == true){
+            mustBeManned2 = "yes";
+        } else {
+            mustBeManned2 = "no";
+        }
+        return getName() 
+        + "\nSpecs: " 
+        + "\n   Must be manned: " + mustBeManned2
+        + "\n   Payload: " + payload
+        + "\n   Max fuel: " + maxFuel
+        + "\n   Number max of boosters: " + maxBoosters
+        + "\n Price: " + price;  
     }
 }

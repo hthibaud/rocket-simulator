@@ -31,6 +31,10 @@ public class Booster {
     
     @Override
     public String toString(){
-        return "Your booster: " + getName();
+        return getName() 
+        + "\nSpecs: " 
+        + "\n   Additional Thrust: " + additionalThrust + "kN"
+        + "\n   Weight: " + weight
+        + "\n Price: " + price;  
     }
 }

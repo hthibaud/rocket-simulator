@@ -34,6 +34,17 @@ public abstract class Capsule {
 
     @Override
     public String toString(){
-        return "Your capsule's name: " + getName();
+        String isManned2;
+
+        if (isManned == true){
+            isManned2 = "yes";
+        } else {
+            isManned2 = "no";
+        }
+        return getName() 
+        + "\nSpecs: " 
+        + "\n   Is manned: " + isManned2 + ", " +  maxPeople + " people max"
+        + "\n   Weight: " + weight
+        + "\n Price: " + price;  
     }
 }

@@ -71,6 +71,20 @@ public class Rocket {
     public Capsule getCapsule(){
         return this.capsule;
     }
+
+    public Launcher getLauncher(){
+        return this.launcher;
+    }
+
+    public int getNbBoosters(Rocket myRocket){
+        int nbBoosters = 0;
+        for (Booster b : boosters){
+            nbBoosters++;
+        }
+        return nbBoosters;
+    }
+
+
     @Override
     public String toString(){
         

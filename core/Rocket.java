@@ -34,6 +34,34 @@ public class Rocket {
         return total;
     }
 
+    public double getTotalWeight(){
+
+        double totalWeight = 0;
+
+        totalWeight += launcher.getWeight();
+
+        totalWeight += capsule.getWeight();
+
+        for (Booster b : boosters) {
+            totalWeight += b.getWeight();
+            }
+        return totalWeight;
+        }
+
+    public int getTotalThrust(){
+        int totalThrust = 0;
+
+        for (Booster b : boosters) {
+            totalThrust += b.getAdditionalThrust();
+            }
+        return totalThrust;
+    }
+
+    public boolean verifyPayload(){
+
+        return (this.launcher.getPayload() <= this.capsule.getWeight());
+    }
+    
     @Override
     public String toString(){
         

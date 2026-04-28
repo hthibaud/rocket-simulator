@@ -1,4 +1,5 @@
-import core.Rocket;
+package core;
+
 import java.util.ArrayList;
 import java.util.List;
 import models.booster.Booster;

@@ -3,7 +3,6 @@ package core;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import models.booster.Booster;
 import models.capsule.Capsule;
 import models.launcher.Launcher;
@@ -14,6 +13,7 @@ import utils.utils;
 public class Simulator {
 
     static Builder builder = new Builder();
+    private Rocket myRocket;
     static Scanner scanner = new Scanner(System.in);
     static ASCII ascii = new ASCII();
     static Catalog catalog = new Catalog();
@@ -296,7 +296,14 @@ public class Simulator {
         String name = scanner.nextLine();
         builder.setName(name);
 
-        return builder.build();
+        System.out.println("\nYour rocket " + name + " is ready!");
+        System.out.println("(press enter to return to menu)");
+        scanner.nextLine();
+        mainMenu();
+
+        this.myRocket = builder.build();
+
+        return myRocket;
     }
 
     public void historyMenu(){

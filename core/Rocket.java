@@ -36,7 +36,8 @@ public class Rocket {
 
     @Override
     public String toString(){
-        return "\n" + this.launcher.toString() 
+        
+        return "Your rocket: " + this.name + "\n" + this.launcher.toString() 
         + "\n" + this.capsule.toString() 
         + "\n" + this.boosters.toString() 
         + "\nBudget of you rocket " + getTotalPrice() + "Millions€";

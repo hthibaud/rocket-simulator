@@ -16,7 +16,7 @@ public class Launch {
     private final List<String> reports = new ArrayList<>();
 
     public Launch(Rocket rocket, Mission mission, boolean success, double totalCost, String reason) {
-        this.date = "";
+        this.date = java.time.LocalDate.now().toString();
         this.rocket = rocket;
         this.mission = mission;
         this.success = success;
@@ -53,8 +53,12 @@ public class Launch {
     }
 
     public String generateAndAddReport(){
-        String report = "";
+        String report = "Launch report of the " + date + ": ";
         reports.add(report);
         return report;
     } 
+
+    public boolean isMissionSuccessful(Rocket myRocket, Mission myMission){
+        return (verifyMissionCompatibility(myRocket, myMission) == true || myMission.calculateFuelNeeded(myRocket, myMission) >= myRocket.getTotalFuel());
+    }
 }

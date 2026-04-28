@@ -84,6 +84,28 @@ public class Rocket {
         return nbBoosters;
     }
 
+    public String getBoostersName(){
+
+        String fullNames = "";
+
+        for (Booster b : boosters) {
+           fullNames += b.getName() + " ";
+        }
+        return fullNames;
+    }
+
+    public String getBoosterstoString(){
+        int totalBoosters = 0;
+
+        if (boosters.isEmpty()){
+            System.out.println("No booster");
+        }
+        for (Booster b : boosters) {
+            totalBoosters++;
+        }
+        return totalBoosters + " " + getBoostersName() + "boosters"; 
+    }
+
     public int getMaxBoosters(){
         return this.launcher.getMaxBoosters();
     }
@@ -93,7 +115,7 @@ public class Rocket {
         
         return "Rocket: " + this.name + "\n" + this.launcher.toString() 
         + "\n" + this.capsule.toString() 
-        + "\n" + this.boosters.toString() 
+        + "\n" + getBoosterstoString() 
         + "\n Price of you rocket: " + getTotalPrice() + "Millions€";
     }
 }

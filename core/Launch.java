@@ -12,9 +12,29 @@ public class Launch {
     private String reason;
     private final List<String> reports = new ArrayList<>();
 
-    // public static boolean verifyMissionCompatibility(){
-        
-    // }
+    public boolean verifyMissionCompatibility(Rocket myRocket, Mission myMission){
+
+        if (myRocket.getCapsule().getIsManned() == false) {
+
+        switch (myMission.getName()
+
+        ) {
+            case "ISS" -> {
+                return false;
+            }
+            case "Moon" -> {
+                return false;
+            }
+            case "Mars" -> {
+                return false;
+            }
+            case "Orbit" -> {
+                return true;
+            }
+        } 
+    }
+        return true;
+    }
 
     public double calculateMissionCost(Rocket myRocket, Mission myMission){
         return myRocket.getTotalPrice() + (myRocket.getTotalFuel() * 1200);

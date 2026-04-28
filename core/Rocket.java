@@ -61,7 +61,12 @@ public class Rocket {
 
         return (this.launcher.getPayload() <= this.capsule.getWeight());
     }
-    
+
+    public double getTotalFuel(){
+
+        return this.launcher.getMaxFuel();
+        
+    }
     @Override
     public String toString(){
         

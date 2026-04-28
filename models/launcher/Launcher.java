@@ -36,6 +36,11 @@ public abstract class Launcher {
         return payload;
     }
 
+    public int getMaxBoosters(){
+        return maxBoosters;
+    }
+
+
     @Override
     public String toString(){
         return "Launcher's name: " + getName();

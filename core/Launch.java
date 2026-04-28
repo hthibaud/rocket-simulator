@@ -9,7 +9,7 @@ public class Launch {
     private double totalCost;
     private boolean verdict;
     private String reason;
-    private List<String> reports = new ArrayList<>();
+    private final List<String> reports = new ArrayList<>();
 
     public static boolean verifyMissionCompatibility(){
         return true;

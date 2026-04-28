@@ -1,6 +1,7 @@
 package simulator;
 
 import java.util.Scanner;
+import utils.ASCII;
 import utils.Catalog;
 import utils.utils;
 

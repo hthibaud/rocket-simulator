@@ -84,6 +84,10 @@ public class Rocket {
         return nbBoosters;
     }
 
+    public int getMaxBoosters(){
+        return this.launcher.getMaxBoosters();
+    }
+
 
     @Override
     public String toString(){

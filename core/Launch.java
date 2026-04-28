@@ -59,6 +59,18 @@ public class Launch {
     } 
 
     public boolean isMissionSuccessful(Rocket myRocket, Mission myMission){
-        return (verifyMissionCompatibility(myRocket, myMission) == true || myMission.calculateFuelNeeded(myRocket, myMission) >= myRocket.getTotalFuel());
+        return (verifyMissionCompatibility(myRocket, myMission) == true && myMission.calculateFuelNeeded(myRocket, myMission) <= myRocket.getTotalFuel());
+    }
+
+    public boolean verifyFuel(Rocket myRocket, Mission myMission){
+        return (myMission.calculateFuelNeeded(myRocket, myMission) <= myRocket.getTotalFuel());
+    }
+
+    public boolean verifyTotalWeight(Rocket myRocket, Mission myMission){
+        return (myRocket.getCapsule().getWeight() < myRocket.getLauncher().getPayload());
+    }
+
+    public boolean verifyNbBoosters(Rocket myRocket, Mission myMission){
+        return (myRocket.getNbBoosters(myRocket) > myRocket.getMaxBoosters());
     }
 }

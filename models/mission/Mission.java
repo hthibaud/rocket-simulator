@@ -1,5 +1,7 @@
 package models.mission;
 
+import core.Rocket;
+
 public abstract class Mission {
 
     protected String name;
@@ -14,5 +16,10 @@ public abstract class Mission {
         this.distance = distance;
         this.duration = duration;
         this.fuelCoefficient = fuelCoefficient;
+    }
+
+
+    public double calculateFuelNeeded(Rocket myRocket, Mission myMission){
+        return (myRocket.getTotalWeight() * myMission.distance * myMission.fuelCoefficient) /1000;
     }
 }

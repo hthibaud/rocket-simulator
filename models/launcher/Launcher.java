@@ -27,6 +27,15 @@ public abstract class Launcher {
     public String getName(){
         return name;
     }
+
+    public double getWeight(){
+        return maxFuel;
+    }
+
+    public int getPayload(){
+        return payload;
+    }
+
     @Override
     public String toString(){
         return "Launcher's name: " + getName();

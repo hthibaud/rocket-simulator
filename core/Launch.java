@@ -2,6 +2,7 @@ package core;
 
 import java.util.ArrayList;
 import java.util.List;
+import models.mission.Mission;
 
 public class Launch {
    
@@ -11,8 +12,12 @@ public class Launch {
     private String reason;
     private final List<String> reports = new ArrayList<>();
 
-    public static boolean verifyMissionCompatibility(){
-        return true;
+    // public static boolean verifyMissionCompatibility(){
+        
+    // }
+
+    public double calculateMissionCost(Rocket myRocket, Mission myMission){
+        return myRocket.getTotalPrice() + (myRocket.getTotalFuel() * 1200);
     }
 
     public String generateAndAddReport(){

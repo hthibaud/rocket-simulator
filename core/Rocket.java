@@ -88,7 +88,6 @@ public class Rocket {
         return this.launcher.getMaxBoosters();
     }
 
-
     @Override
     public String toString(){
         

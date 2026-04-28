@@ -22,4 +22,8 @@ public abstract class Mission {
     public double calculateFuelNeeded(Rocket myRocket, Mission myMission){
         return (myRocket.getTotalWeight() * myMission.distance * myMission.fuelCoefficient) /1000;
     }
+
+    public String getName(){
+        return name;
+    }
 }

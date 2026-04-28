@@ -1,5 +1,6 @@
 import core.Launch;
 import core.Rocket;
+import core.Simulator;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -8,16 +9,13 @@ import models.booster.EAP;
 import models.capsule.CargoDragon;
 import models.launcher.ArianeV;
 import models.mission.Orbit;
-import simulator.IntMenu;
 import utils.utils;
 
 public class Program {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-
-
-        IntMenu menu = new IntMenu();
+        Simulator simulator = new Simulator();
         ArianeV myAriane = new ArianeV();
         CargoDragon myCargoDragon = new CargoDragon();
         EAP myEAP1 = new EAP();
@@ -31,8 +29,8 @@ public class Program {
         Launch launch = new Launch(myRocket, myMission);
 
         utils.clearConsole();
-        menu.startMenu();
-        menu.mainMenu();
+        simulator.startMenu();
+        simulator.mainMenu();
         //System.out.println(launch.isMissionSuccessful(myRocket, myMission));
         //scanner.nextLine();
         //System.out.println(myRocket.toString());

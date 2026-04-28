@@ -20,9 +20,14 @@ public abstract class Capsule {
         return price;
     }
 
-        public String getName(){
+    public String getName(){
         return name;
     }
+
+    public double getWeight(){
+        return weight;
+    }
+
     @Override
     public String toString(){
         return "Your capsule's name: " + getName();

@@ -5,6 +5,7 @@ import models.booster.Booster;
 import models.booster.EAP;
 import models.capsule.CargoDragon;
 import models.launcher.ArianeV;
+import utils.utils;
 
 public class Program {
     public static void main(String[] args) {
@@ -19,8 +20,8 @@ public class Program {
         
         Rocket myRocket = new Rocket("Rocket1", myAriane, myCargoDragon, myBoosters);
 
-        //;
-
+        
+        utils.clearConsole();
         System.out.println(myRocket.toString());
     }
 }

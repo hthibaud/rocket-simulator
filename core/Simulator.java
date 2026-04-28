@@ -241,7 +241,7 @@ public class Simulator {
         System.out.println("\n1. "+ catalog.getOrbit().toString());
         System.out.println("\n2. "+ catalog.getISS().toString());
         System.out.println("\n3. "+ catalog.getMoon().toString());
-        System.out.println("\n4. "+ catalog.getMoon().toString());
+        System.out.println("\n4. "+ catalog.getMars().toString());
         System.out.println("\n5. Back");
 
         String choice = scanner.nextLine();
@@ -378,13 +378,20 @@ public class Simulator {
 
     public void historyMenu(){
         if (reports.isEmpty()){
+            utils.clearConsole();
             System.out.println("You don't have any report yet.");
+            System.out.println("\n(press enter to return to main menu)");
+            scanner.nextLine();
+            mainMenu();
         } else {
             int nbReports = 0;
             for (String r : reports){
                 nbReports++;
-                System.out.println(nbReports + r);
+                System.out.println("\n" + nbReports + ". " + r);
             }
+            System.out.println("\n(press enter to return to main menu)");
+            scanner.nextLine();
+            mainMenu();
         }
     }
 

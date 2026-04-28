@@ -15,7 +15,8 @@ public class Launch {
     }
 
     public double calculateMissionCost(Rocket myRocket, Mission myMission) {
-        return myRocket.getTotalPrice() + (myRocket.getTotalFuel() * 1200);
+        double fuelNeeded = myMission.calculateFuelNeeded(myRocket, myMission);
+        return myRocket.getTotalPrice() + (fuelNeeded * 1200);
     }
 
     public String isMissionSuccessful(Rocket myRocket, Mission myMission) {
@@ -29,7 +30,11 @@ public class Launch {
         } else if (!verifyNbBoosters(myRocket)) {
             verdictMessage = "Your mission to " + myMission.getName() + " has been canceled.\n CAUSE: You had a maximum of " + myRocket.getLauncher().getMaxBoosters() + "boosters ot attach, but you attached" + myRocket.getNbBoosters(myRocket) + "boosters.";
         } else if (verifyMissionCompatibility(myRocket, myMission) && verifyFuel(myRocket, myMission) && verifyTotalWeight(myRocket, myMission) && verifyNbBoosters(myRocket)) {
-            verdictMessage = "Your mission to " + myMission.getName() + " is a SUCCESS!";
+            if (Math.random() < 0.05) {
+                return "Report: Failure. CAUSE: Unforeseen technical issue.";
+            } else {
+                verdictMessage = "Your mission to " + myMission.getName() + " is a SUCCESS! This mission cost " + calculateMissionCost(myRocket, myMission) + "€";
+            }
         } else {
             verdictMessage = "Problem here.";
         }

@@ -64,9 +64,15 @@ public class Rocket {
 
     public int getTotalFuel(){
 
-        return this.launcher.getMaxFuel();
-
+    int launcherFuel = launcher.getMaxFuel();
+    int boosterFuel = 0;
+    
+    for (Booster b : boosters) {
+        boosterFuel += 500; 
     }
+    
+    return launcherFuel + boosterFuel;
+}
     
     public Capsule getCapsule(){
         return this.capsule;

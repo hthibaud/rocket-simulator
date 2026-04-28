@@ -1,6 +1,7 @@
 package core;
 
-import java.sql.SQLData;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Launch {
    
@@ -8,17 +9,15 @@ public class Launch {
     private double totalCost;
     private boolean verdict;
     private String reason;
+    private List<String> reports = new ArrayList<>();
 
     public static boolean verifyMissionCompatibility(){
         return true;
     }
 
-    public static String generateReport(){
+    public String generateAndAddReport(){
         String report = "";
+        reports.add(report);
         return report;
     } 
-
-    public static SQLData addReportToDataBase(){
-        return null;
-    }
 }

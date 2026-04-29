@@ -28,7 +28,7 @@ public class Launch {
         } else if (!verifyTotalWeight(myRocket, myMission)) {
             verdictMessage = "Your mission to " + myMission.getName() + " has been canceled.\n CAUSE: Your capsule's weight is " + myRocket.getCapsule().getWeight() + "tons, but your rocket can only handle" + myRocket.getLauncher().getPayload() + "tons.";
         } else if (!verifyNbBoosters(myRocket)) {
-            verdictMessage = "Your mission to " + myMission.getName() + " has been canceled.\n CAUSE: You had a maximum of " + myRocket.getLauncher().getMaxBoosters() + "boosters ot attach, but you attached" + myRocket.getNbBoosters(myRocket) + "boosters.";
+            verdictMessage = "Your mission to " + myMission.getName() + " has been canceled.\n CAUSE: You had a maximum of " + myRocket.getLauncher().getMaxBoosters() + " boosters ot attach, but you attached " + myRocket.getNbBoosters(myRocket) + " of them.";
         } else if (verifyMissionCompatibility(myRocket, myMission) && verifyFuel(myRocket, myMission) && verifyTotalWeight(myRocket, myMission) && verifyNbBoosters(myRocket)) {
             if (Math.random() < 0.05) {
                 return "Report: Failure. CAUSE: Unforeseen technical issue.";

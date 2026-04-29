@@ -34,7 +34,7 @@ public class Booster {
         return getName() 
         + "\nSpecs: " 
         + "\n   Additional Thrust: " + additionalThrust + "kN"
-        + "\n   Weight: " + weight
-        + "\n   Price: " + price;  
+        + "\n   Weight: " + weight + " tons"
+        + "\n   Price: " + price + "Millions€";  
     }
 }

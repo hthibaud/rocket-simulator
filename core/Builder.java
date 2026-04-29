@@ -24,8 +24,7 @@ public class Builder {
             return false;
         } else {
             this.selectedLauncher = launcher;
-            utils.clearConsole();
-            System.out.println(launcher.getName() + " added to your rocket!");
+            System.out.println("\nLauncher " + launcher.getName() + " added to your rocket!");
             return true;
         }
     }
@@ -37,15 +36,13 @@ public class Builder {
             return false;
         } else {
             this.selectedCapsule = capsule;
-            utils.clearConsole();
-            System.out.println(capsule.getName() + " added to your rocket!");
+            System.out.println("\nCapsule " + capsule.getName() + " added to your rocket!");
             return true;
         }
     }
 
     public void addBoosterToRocket(Booster booster) {
-        utils.clearConsole();
-        System.out.println("\n" + booster.getName() + " added to your rocket!");
+        System.out.println("\nBooster " + booster.getName() + " added to your rocket!");
          this.selectedBoosters.add(booster); 
     }
 

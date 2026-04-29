@@ -266,6 +266,7 @@ public class Simulator {
         String choice = scanner.nextLine();
         switch(choice){
             case "yes" -> {
+                utils.clearConsole();
                 builder.addLauncherToRocket(launcher);
             }
             case "no" -> {
@@ -283,6 +284,7 @@ public class Simulator {
         String choice = scanner.nextLine();
         switch(choice){
             case "yes" -> {
+                utils.clearConsole();
                 builder.addCapsuleToRocket(capsule);
             }
             case "no" -> {
@@ -300,6 +302,7 @@ public class Simulator {
         String choice = scanner.nextLine();
         switch(choice){
             case "yes" -> {
+                utils.clearConsole();
                 builder.addBoosterToRocket(booster);
             }
             case "no" -> {
@@ -398,5 +401,6 @@ public class Simulator {
     public void quit(){
         utils.clearConsole();
         System.out.println("Bye!");
+        System.exit(0);
     }
 }

@@ -57,6 +57,6 @@ public abstract class Launcher {
         + "\n   Payload: " + payload + " tons"
         + "\n   Max fuel: " + maxFuel + " tons"
         + "\n   Number max of boosters: " + maxBoosters
-        + "\n   Price: " + price + "€";  
+        + "\n   Price: " + price + "Millions€";  
     }
 }

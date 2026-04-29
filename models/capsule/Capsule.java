@@ -44,7 +44,7 @@ public abstract class Capsule {
         return getName() 
         + "\nSpecs: " 
         + "\n   Is manned: " + isManned2 + ", " +  maxPeople + " people max"
-        + "\n   Weight: " + weight
-        + "\n   Price: " + price;  
+        + "\n   Weight: " + weight + " tons"
+        + "\n   Price: " + price + "Millions€";  
     }
 }

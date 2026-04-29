@@ -17,26 +17,43 @@ public class Builder {
         this.rocketName = name; 
     }
     
-    public void addLauncherToRocket(Launcher launcher) {
-        utils.clearConsole();
-        System.out.println(launcher.getName() + " added to your rocket!");
-         this.selectedLauncher = launcher; 
+    public boolean addLauncherToRocket(Launcher launcher) {
+        if (this.selectedLauncher != null) {
+            utils.clearConsole();
+            System.out.println("You already have a " + selectedLauncher.getName() + " on your rocket.");
+            return false;
+        } else {
+            this.selectedLauncher = launcher;
+            utils.clearConsole();
+            System.out.println(launcher.getName() + " added to your rocket!");
+            return true;
         }
-    public void addCapsuleToRocket(Capsule capsule) {
-        utils.clearConsole();
-        System.out.println(capsule.getName() + " added to your rocket!");
-         this.selectedCapsule = capsule; 
+    }
+
+    public boolean addCapsuleToRocket(Capsule capsule) {
+        if (this.selectedCapsule != null) {
+            utils.clearConsole();
+            System.out.println("You already have a " + capsule.getName() + " on your rocket.");
+            return false;
+        } else {
+            this.selectedCapsule = capsule;
+            utils.clearConsole();
+            System.out.println(capsule.getName() + " added to your rocket!");
+            return true;
         }
+    }
+
     public void addBoosterToRocket(Booster booster) {
         utils.clearConsole();
-        System.out.println(booster.getName() + " added to your rocket!");
+        System.out.println("\n" + booster.getName() + " added to your rocket!");
          this.selectedBoosters.add(booster); 
-        }
+    }
 
     public Rocket build() {
         if (selectedLauncher == null || selectedCapsule == null) {
             return null; 
         }
+
         Rocket myRocket = new Rocket(rocketName, selectedLauncher, selectedCapsule, selectedBoosters);
         
         this.selectedLauncher = null;

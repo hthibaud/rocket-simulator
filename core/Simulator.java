@@ -62,6 +62,7 @@ public class Simulator {
         System.out.println("\n2. "+ catalog.getISS().toString());
         System.out.println("\n3. "+ catalog.getMoon().toString());
         System.out.println("\n4. "+ catalog.getMars().toString());
+        System.out.println("\n5. "+ catalog.getSecretMission().toString());
 
         System.out.println("\n(press enter to go back)");
         scanner.nextLine();

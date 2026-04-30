@@ -69,11 +69,11 @@ public class Rocket {
     
     for (Booster b : boosters) {
         if (b.getName().equals("BE-3")){
-        boosterFuel += 250; 
+        boosterFuel += 300; 
         } else if (b.getName().equals("EAP")){
-        boosterFuel += 3250; 
+        boosterFuel += 3500; 
         } else if (b.getName().equals("SRB")){
-        boosterFuel += 6250; 
+        boosterFuel += 6500; 
         }
     }
     
@@ -100,8 +100,13 @@ public class Rocket {
 
         String fullNames = "";
 
-        for (Booster b : boosters) {
-           fullNames += b.getName() + " ";
+        for (int i = 0; i < boosters.size(); i++) {
+
+           fullNames += boosters.get(i).getName();
+
+           if (i != boosters.size() -1){
+                fullNames += ", ";
+           }
         }
         return fullNames;
     }
@@ -115,7 +120,7 @@ public class Rocket {
         for (Booster b : boosters) {
             totalBoosters++;
         }
-        return totalBoosters + " " + getBoostersName() + "boosters"; 
+        return totalBoosters + " boosters "+ "(" + getBoostersName() + ")" ; 
     }
 
     public int getMaxBoosters(){
@@ -125,9 +130,10 @@ public class Rocket {
     @Override
     public String toString(){
         
-        return "Rocket: " + this.name + "\n" + this.launcher.toString() 
-        + "\n   " + this.capsule.toString() 
-        + "\n   " + getBoosterstoString() 
-        + "\n   Price of you rocket: " + getTotalPrice() + "Millions€";
+        return "Rocket: " + this.name 
+        + "\n" + this.launcher.toString() 
+        + "\n" + this.capsule.toString() 
+        + "\n" + getBoosterstoString() 
+        + "\nPrice of you rocket: " + getTotalPrice() + "Millions€";
     }
 }

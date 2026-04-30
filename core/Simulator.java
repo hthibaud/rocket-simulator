@@ -242,7 +242,9 @@ public class Simulator {
         System.out.println("\n2. "+ catalog.getISS().toString());
         System.out.println("\n3. "+ catalog.getMoon().toString());
         System.out.println("\n4. "+ catalog.getMars().toString());
-        System.out.println("\n5. Back");
+        System.out.println("\n5. "+ catalog.getSecretMission().toString());
+
+        System.out.println("\n6. Back");
 
         String choice = scanner.nextLine();
 
@@ -252,7 +254,8 @@ public class Simulator {
             case "2" -> confirmMissionChoice(catalog.getISS());
             case "3" -> confirmMissionChoice(catalog.getMoon());
             case "4" -> confirmMissionChoice(catalog.getMars());
-            case "5" -> mainMenu();
+            case "5" -> confirmMissionChoice(catalog.getSecretMission());
+            case "6" -> mainMenu();
             default -> missionChoiceMenu();
 
         }
@@ -336,6 +339,11 @@ public class Simulator {
 
     public Rocket finishRocket(){
 
+        utils.clearConsole();
+        System.out.println("How do you want to name your rocket?");
+        String name = scanner.nextLine();
+        builder.setName(name);
+
         this.myRocket = builder.build();
 
         if (myRocket == null){
@@ -344,12 +352,9 @@ public class Simulator {
             buildRocketMenu();
             return null;
         }
-        utils.clearConsole();
-        System.out.println("How do you want to name your rocket?");
-        String name = scanner.nextLine();
-        builder.setName(name);
 
         System.out.println("\nYour rocket " + name + " is ready!");
+        System.out.println(myRocket.toString());
         System.out.println("(press enter to return to menu)");
         scanner.nextLine();
         mainMenu();

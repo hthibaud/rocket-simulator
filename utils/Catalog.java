@@ -19,6 +19,7 @@ import models.mission.Mars;
 import models.mission.Mission;
 import models.mission.Moon;
 import models.mission.Orbit;
+import models.mission.SecretMission;
 
 public class Catalog {
     Falcon9 falcon = new Falcon9();
@@ -36,6 +37,7 @@ public class Catalog {
     ISS iss = new ISS();
     Moon moon = new Moon();
     Mars mars = new Mars();
+    SecretMission secretMission = new SecretMission();
 
 
     public Launcher getFalcon9(){
@@ -96,6 +98,10 @@ public class Catalog {
 
     public Mission getMars(){
         return mars;
+    }
+
+    public Mission getSecretMission(){
+        return secretMission;
     }
     
 }

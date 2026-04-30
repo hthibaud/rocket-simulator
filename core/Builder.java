@@ -16,6 +16,10 @@ public class Builder {
     public void setName(String name) { 
         this.rocketName = name; 
     }
+
+    public String getRocketName(){
+        return rocketName;
+    }
     
     public boolean addLauncherToRocket(Launcher launcher) {
         if (this.selectedLauncher != null) {

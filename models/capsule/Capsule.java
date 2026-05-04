@@ -16,22 +16,27 @@ public abstract class Capsule {
         this.weight = weight;
     }
 
+    //returns the price of the capsule
     public int getPrice() {
         return price;
     }
 
+    //returns the name of the capsule
     public String getName(){
         return name;
     }
 
+    //returns the weight of the capsule
     public double getWeight(){
         return weight;
     }
 
+    //returns if the capsule is manned
     public boolean getIsManned(){
         return isManned;
     }
 
+    //toString method for the capsule
     @Override
     public String toString(){
         String isManned2;

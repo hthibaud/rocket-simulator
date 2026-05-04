@@ -2,6 +2,8 @@ import core.Simulator;
 import utils.utils;
 
 public class Program {
+
+    //starts the program
     public static void main(String[] args) {
 
         Simulator simulator = new Simulator();
@@ -9,6 +11,5 @@ public class Program {
         utils.clearConsole();
         simulator.startMenu();
         simulator.mainMenu();
-
     }
 }

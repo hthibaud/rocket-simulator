@@ -40,66 +40,82 @@ public class Catalog {
     SecretMission secretMission = new SecretMission();
 
 
+    //returns a Falcon9
     public Launcher getFalcon9(){
         return falcon;
     }
 
+    //returns an Ariane V
     public Launcher getArianeV(){
         return ariane;
     }
 
+    //returns a Saturne V
     public Launcher getSaturneV(){
         return saturne;
     }
 
+    //returns an SLS
     public Launcher getSLS(){
         return sls;
     }
 
+    //returns a Cargo Dragon
     public Capsule getCargoDragon(){
         return cargoDragon;
     }
 
+    //returns a Crew Dragon
     public Capsule getCrewDragon(){
         return crewDragon;
     }
 
+    //returns an Apollo
     public Capsule getApollo(){
         return apollo;
     }
 
+    //returns an Orion
     public Capsule getOrion(){
         return orion;
     }
 
+    //returns a BE-3
     public Booster getBE3(){
         return be3;
     }
 
+    //returns an EAP
     public Booster getEAP(){
         return eap;
     }
 
+    //returns an SRB
     public Booster getSRB(){
         return srb;
     }
 
+    //returns the Orbit mission
     public Mission getOrbit(){
         return orbit;
     }
 
+    //returns the ISS mission
     public Mission getISS(){
         return iss;
     }
 
+    //returns the Moon mission
     public Mission getMoon(){
         return moon;
     }
 
+    //returns the Mars mission
     public Mission getMars(){
         return mars;
     }
 
+    //returns the secret mission
     public Mission getSecretMission(){
         return secretMission;
     }

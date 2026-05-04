@@ -22,6 +22,7 @@ public class Simulator {
     private final List<String> reports = new ArrayList<>();
 
     
+    //starts the first menu with a rocket ASCII art
     public void startMenu(){
         utils.clearConsole();
         System.out.println("################# WELCOME TO YOUR ROCKET SIMULATOR #################");
@@ -30,6 +31,7 @@ public class Simulator {
         scanner.nextLine();
     }
 
+        //starts the main menu to choose what you want to do
         public void mainMenu(){
         utils.clearConsole();
         System.out.println("################# MAIN MENU #################\n");
@@ -55,9 +57,10 @@ public class Simulator {
 
     }
 
+    //all missions print
     public void missionsMenu(){
         utils.clearConsole();
-        System.out.println("################# MISSIONS #################\n");
+        System.out.println("################# MISSIONS #################");
         System.out.println("\n1. "+ catalog.getOrbit().toString());
         System.out.println("\n2. "+ catalog.getISS().toString());
         System.out.println("\n3. "+ catalog.getMoon().toString());
@@ -69,6 +72,7 @@ public class Simulator {
         mainMenu();
     }
 
+    //all components print
     public void componentsMenu(){
         utils.clearConsole();
         System.out.println("################# AVAILABLE COMPONENTS #################\n");
@@ -90,6 +94,7 @@ public class Simulator {
         }
     }
 
+    //build the rocket menu, with all launchers, capsules, and boosters
     public void buildRocketMenu(){
         utils.clearConsole();
         System.out.println("################# BUILD YOUR ROCKET #################\n");
@@ -113,6 +118,7 @@ public class Simulator {
         }
     }
 
+    //launches the rocket if you have one (you have to choose a mission to actually launch the rocket)
     public void launchRocket(){
 
         utils.clearConsole();
@@ -125,6 +131,8 @@ public class Simulator {
         missionChoiceMenu();
     }
 
+
+    //all launchers print
     public void launchersMenu(){
         utils.clearConsole();
         System.out.println("################# AVAILABLE LAUNCHERS #################\n");
@@ -138,6 +146,7 @@ public class Simulator {
         componentsMenu();
     }
 
+    //menu to build using the available launchers
     public void launchersBuildMenu(){
         utils.clearConsole();
         System.out.println("################# AVAILABLE LAUNCHERS (for build) #################\n");
@@ -163,6 +172,7 @@ public class Simulator {
         buildRocketMenu();
     }
 
+    //all capsules print
     public void capsulesMenu(){
         utils.clearConsole();
         System.out.println("################# AVAILABLE CAPSULES #################\n");
@@ -176,6 +186,7 @@ public class Simulator {
         componentsMenu();
     }
 
+    //menu to build using the available capsule
     public void capsulesBuildMenu(){
         utils.clearConsole();
         System.out.println("################# AVAILABLE CAPSULES (for build) #################\n");
@@ -201,6 +212,7 @@ public class Simulator {
         buildRocketMenu();
     }
 
+    //all boosters print
     public void boostersMenu(){
         utils.clearConsole();
         System.out.println("################# AVAILABLE BOOSTERS #################\n");
@@ -213,6 +225,7 @@ public class Simulator {
         componentsMenu();
     }
 
+    //menu to build using the available boosters
     public void boostersBuildMenu(){
                 utils.clearConsole();
         System.out.println("################# AVAILABLE BOOSTERS (for build) #################\n");
@@ -236,7 +249,8 @@ public class Simulator {
         buildRocketMenu();
     }
 
-        public void missionChoiceMenu(){
+    //choosing mission menu
+    public void missionChoiceMenu(){
         utils.clearConsole();
         System.out.println("################# CHOOSE YOUR MISSION #################\n");
         System.out.println("\n1. "+ catalog.getOrbit().toString());
@@ -264,6 +278,7 @@ public class Simulator {
         mainMenu();
     }
 
+    //confirmation print for launcher choice
     public void confirmLauncherChoice(Launcher launcher){
         System.out.println("Confirm choice ? : " + launcher.getName());
         System.out.println("(type yes or no)");
@@ -282,6 +297,7 @@ public class Simulator {
         }
     }
 
+    //confirmation print for capsule choice
     public void confirmCapsuleChoice(Capsule capsule){
         System.out.println("Confirm choice ? : " + capsule.getName());
         System.out.println("(type yes or no)");
@@ -300,6 +316,7 @@ public class Simulator {
         }
     }
 
+    //confirmation print for booster choice
     public void confirmBoosterChoice(Booster booster){
         System.out.println("Confirm choice ? : " + booster.getName());
                 System.out.println("(type yes or no)");
@@ -318,6 +335,7 @@ public class Simulator {
         }
     }
 
+    //confirmation print for mission choice
     public void confirmMissionChoice(Mission mission){
 
         System.out.println("Confirm choice ? : " + mission.getName());
@@ -338,6 +356,7 @@ public class Simulator {
         }
     }
 
+    //asks for the name of your rocket and builds it using the builder
     public Rocket finishRocket(){
 
         utils.clearConsole();
@@ -364,6 +383,7 @@ public class Simulator {
         return myRocket;
     }
 
+    //starts the launch of the rocket with a 3,2,1 countdown
     public void startLaunch(){
         utils.clearConsole();
 
@@ -385,6 +405,7 @@ public class Simulator {
         mainMenu();
     }
 
+    //prints all the previous launches
     public void historyMenu(){
         if (reports.isEmpty()){
             utils.clearConsole();
@@ -404,6 +425,7 @@ public class Simulator {
         }
     }
 
+    //quits the simulator
     public void quit(){
         utils.clearConsole();
         System.out.println("Bye!");

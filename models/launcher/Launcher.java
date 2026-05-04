@@ -17,30 +17,40 @@ public abstract class Launcher {
         this.maxBoosters = maxBoosters;
         this.mustBeManned = mustBeManned;
     }
-
+    
+    //returns the price of the launcher
     public int getPrice() {
          return price; 
         }
+
+    //returns the max fuel of the launcher
     public int getMaxFuel() {
          return maxFuel; 
         }
+
+    //returns the name of the launcher
     public String getName(){
         return name;
     }
 
+    //returns the weight of the launcher
     public double getWeight(){
         return maxFuel;
     }
 
+
+    //returns the payload of the launcher
     public int getPayload(){
         return payload;
     }
 
+    //returns the maximum number of boosters the launcher can handle
     public int getMaxBoosters(){
         return maxBoosters;
     }
 
 
+    //toString method for the launcher
     @Override
     public String toString(){
         String mustBeManned2;

@@ -14,21 +14,27 @@ public class Booster {
         this.price = price;
     }
 
+    //returns the price of the booster
     public int getPrice() {
         return price;
     }
+
+    //returns the name of the booster
     public String getName(){
         return name;
     }
 
+    //returns the weight of the booster
     public double getWeight(){
         return weight;
     }
 
+    //returns the additionnal thrust of the booster
     public int getAdditionalThrust(){
         return additionalThrust;
     }
     
+    //toString method for the booster
     @Override
     public String toString(){
         return getName() 

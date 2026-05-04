@@ -19,14 +19,17 @@ public abstract class Mission {
     }
 
 
+    //calculates the fuel needed to pass the mission
     public double calculateFuelNeeded(Rocket myRocket, Mission myMission){
         return (myRocket.getTotalWeight() * myMission.distance * myMission.fuelCoefficient) /1000;
     }
 
+    //returns the name of the mission
     public String getName(){
         return name;
     }
 
+    //toString method for the mission
     @Override
     public String toString(){
         String mustBeManned2;

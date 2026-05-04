@@ -19,6 +19,7 @@ public class Rocket {
         this.boosters = boosters;
     }
 
+    //returns the total price of the rocket (launcher + capsule + boosters' price)
     public int getTotalPrice() {
 
         int total = 0;
@@ -34,6 +35,7 @@ public class Rocket {
         return total;
     }
 
+    //returns the total weight of the rocket launcher + capsule + boosters' weight)
     public double getTotalWeight(){
 
         double totalWeight = 0;
@@ -48,6 +50,7 @@ public class Rocket {
         return totalWeight;
         }
 
+    //returns the total thrust of the rocket
     public int getTotalThrust(){
         int totalThrust = 0;
 
@@ -57,11 +60,12 @@ public class Rocket {
         return totalThrust;
     }
 
-    public boolean verifyPayload(){
+    // public boolean verifyPayload(){
 
-        return (this.launcher.getPayload() <= this.capsule.getWeight());
-    }
+    //     return (this.launcher.getPayload() <= this.capsule.getWeight());
+    // }
 
+    //returns the total fuel of the rocket (launcher's maxfuel + boosters' maxfuel)
     public int getTotalFuel(){
 
     int launcherFuel = launcher.getMaxFuel();
@@ -80,14 +84,17 @@ public class Rocket {
     return launcherFuel + boosterFuel;
 }
     
+    //returns the current capsule
     public Capsule getCapsule(){
         return this.capsule;
     }
 
+    //returns the current launcher
     public Launcher getLauncher(){
         return this.launcher;
     }
 
+    //returns the current boosters
     public int getNbBoosters(Rocket myRocket){
         int nbBoosters = 0;
         for (Booster b : boosters){
@@ -96,6 +103,7 @@ public class Rocket {
         return nbBoosters;
     }
 
+    //returns the name of hte boosters (different types of boosters)
     public String getBoostersName(){
 
         String fullNames = "";
@@ -111,6 +119,7 @@ public class Rocket {
         return fullNames;
     }
 
+    //other toString method for the boosters
     public String getBoosterstoString(){
         int totalBoosters = 0;
 
@@ -123,10 +132,12 @@ public class Rocket {
         return totalBoosters + " boosters "+ "(" + getBoostersName() + ")" ; 
     }
 
+    //returns the number of max boosters for the current launcher
     public int getMaxBoosters(){
         return this.launcher.getMaxBoosters();
     }
 
+    //this object into a toString method
     @Override
     public String toString(){
         

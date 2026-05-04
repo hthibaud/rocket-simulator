@@ -373,6 +373,7 @@ public class Simulator {
             return null;
         }
 
+        utils.clearConsole();
         System.out.println("\nYour rocket " + name + " is ready!");
         System.out.println(myRocket.toString());
         System.out.println("(press enter to return to menu)");
@@ -398,11 +399,19 @@ public class Simulator {
         System.out.println("Your mission is launched in 1...    (press enter to see the result)");
         scanner.nextLine();
         String verdict = launch.isMissionSuccessful(myRocket, myMission);
+        if (myMission.getName().equals("Secret mission")){
+            utils.animateTimeTravel();
+            System.out.println("(press enter to see the result)");
+            scanner.nextLine();
+            utils.clearConsole();
+            System.out.println(verdict);
+        } else {
         System.out.println(verdict);
         reports.add(verdict);
         System.out.println("\n(press enter to return to main menu)");
         scanner.nextLine();
         mainMenu();
+        }
     }
 
     //prints all the previous launches

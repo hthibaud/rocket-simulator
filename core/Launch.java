@@ -37,7 +37,7 @@ public class Launch {
             if (Math.random() < 0.05) {
                 return "Report: Failure. CAUSE: Unforeseen technical issue.";
             } else {
-                verdictMessage = "Your mission to " + myMission.getName() + " is a SUCCESS! This mission cost " + calculateMissionCost(myRocket, myMission) + " Millions€";
+                verdictMessage = String.format("Your mission to " + myMission.getName() + " is a SUCCESS! This mission cost %.2f Millions€", calculateMissionCost(myRocket, myMission));
             }
         } else {
             verdictMessage = "Problem here.";

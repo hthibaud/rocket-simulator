@@ -60,11 +60,6 @@ public class Rocket {
         return totalThrust;
     }
 
-    // public boolean verifyPayload(){
-
-    //     return (this.launcher.getPayload() <= this.capsule.getWeight());
-    // }
-
     //returns the total fuel of the rocket (launcher's maxfuel + boosters' maxfuel)
     public int getTotalFuel(){
 

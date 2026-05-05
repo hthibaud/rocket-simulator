@@ -25,3 +25,6 @@ replay_pid*
 
 #additional
 settings.json
+createdFiles.lst
+inputFiles.lst
+pom.properties

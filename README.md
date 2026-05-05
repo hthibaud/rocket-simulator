@@ -1,6 +1,6 @@
 # Rocket Simulator
 
-A Java rocket simulation project that models launch vehicles, capsules, boosters, missions, and flight sequences.
+A Java rocket simulation project that models launch vehicles, capsules, boosters, missions, and verdict message.
 
 ## Overview
 
@@ -9,6 +9,7 @@ This simulator is built in Java and provides a modular structure for creating an
 - Launchers, boosters, capsules, and mission modules with their own definition
 - Simulation and launch 
 - Utilities for ASCII display and data catalog support
+- Background music (composed by me lol) and SFX for better immersion
 
 ## Project Structure
 
@@ -24,7 +25,7 @@ This simulator is built in Java and provides a modular structure for creating an
   - `launcher/` - launchers like `ArianeV`, `Falcon9`, `SaturneV`, `SLS`
   - `mission/` - mission profiles including `ISS`, `Mars`, `Moon`, `Orbit`, `SecretMission`
 - `simulator/` - simulation-specific classes
-- `utils/` - utility helpers such as `ASCII`, `Catalog`, and generic helpers in `utils.java`
+- `utils/` - `sounds` with background music and SFX, utility helpers such as `ASCII`, `Catalog`, and generic helpers in `utils.java`
 
 ## Build and Run
 
@@ -47,5 +48,10 @@ java Program
 - The simulator is organized to support extensible rocket configurations and mission logic.
 - New models, launchers, capsules, and missions can be added by following the existing class structure.
 - The current entry point is `Program.java`, which initializes the simulation and starts hte program.
+
+# PS :
+
+- An UI mode is available on the "dev_ui" branch as I talked about it in my live presentation. You maybe can't run it yourself though because of the directories used to load the sounds/images etc.
+- Repo GitHub: https://github.com/hthibaud/ROCKET-SIMULATOR
 
 Made by Thibaud Herry

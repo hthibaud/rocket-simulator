@@ -1,6 +1,7 @@
 package core;
 
 import java.util.List;
+
 import models.booster.Booster;
 import models.capsule.Capsule;
 import models.launcher.Launcher;
@@ -130,6 +131,11 @@ public class Rocket {
     //returns the number of max boosters for the current launcher
     public int getMaxBoosters(){
         return this.launcher.getMaxBoosters();
+    }
+
+    //returns the name of the current rocket
+    public String getName(){
+        return this.name;
     }
 
     //this object into a toString method

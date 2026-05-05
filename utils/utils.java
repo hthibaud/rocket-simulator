@@ -9,43 +9,6 @@ public class utils {
 
     }
 
-    // private static void drawFrame(int height) {
-    // String stars = (height % 2 == 0) ? "  *    +    *  " : "    +    *    +";
-    // System.out.println(stars);
-    
-    // System.out.println("     ^     ");
-    // System.out.println("    / \\    ");
-    // System.out.println("   |   |   ");
-    // System.out.println("   |SIM|   ");
-    // System.out.println("   |___|   ");
-    // System.out.println("    /V\\    ");
-    
-    // if (height % 2 == 0) {
-    //     System.out.println("   v v v   ");
-    // } else {
-    //     System.out.println("    v v    ");
-    // }
-
-    // for (int i = 0; i < height; i++) {
-    //     System.out.println();
-    // }
-    // }
-
-    // public static void animateLaunch() {
-    // for (int i = 0; i < 20; i++) {
-    //     System.out.print("\033[H\033[2J");
-    //     System.out.flush();
-
-    //     drawFrame(i);
-
-    //     try {
-    //         Thread.sleep(100);
-    //     } catch (InterruptedException e) {
-    //         Thread.currentThread().interrupt();
-    //     }
-    //     }
-    // }
-
     //animates a spiral in ASCII
     public static void animateTimeTravel() {
     int frames = 80; 

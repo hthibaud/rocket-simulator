@@ -22,6 +22,7 @@ public class Simulator {
     static ASCII ascii = new ASCII();
     static Catalog catalog = new Catalog();
     private final List<String> reports = new ArrayList<>();
+    private boolean hasDisappeared = false;
 
     
     //starts the first menu with a rocket ASCII art
@@ -289,8 +290,8 @@ public class Simulator {
             default -> missionChoiceMenu();
 
         }
-        scanner.nextLine();
-        mainMenu();
+        // scanner.nextLine();
+        // mainMenu();
     }
 
     //confirmation print for launcher choice
@@ -384,12 +385,18 @@ public class Simulator {
         System.out.println(ascii.ASCIIName());
         System.out.println("How do you want to name your rocket?");
         String name = scanner.nextLine();
+
+        if (name == null || name.isEmpty() || name.equals("")){
+            name = "Unnamed rocket";
+        }
+
         builder.setName(name);
 
         this.myRocket = builder.build();
 
         if (myRocket == null){
             playFailSound();
+            utils.clearConsole();
             System.out.println(ascii.ASCIINope());
             System.out.println("You can't build your rocket, you missed some parts. (press enter to continue)");
             scanner.nextLine();
@@ -413,34 +420,40 @@ public class Simulator {
     public void startLaunch(){
         utils.clearConsole();
 
-        Launch launch = new Launch(myRocket, myMission);
+        Launch launch = new Launch(myRocket, myMission, hasDisappeared);
 
         playBeepSound();
-        System.out.println("Your mission is launched in 3...");
+        System.out.println(ascii.ASCII3());
         try { Thread.sleep(1000); } catch (InterruptedException e) {}
         playBeepSound();
         utils.clearConsole();
-        System.out.println("Your mission is launched in 2...");
+        System.out.println(ascii.ASCII2());
         try { Thread.sleep(1000); } catch (InterruptedException e) {}
         playBeepSound();
         utils.clearConsole();
-        System.out.println("Your mission is launched in 1...    (press enter to see the result)");
+        System.out.println(ascii.ASCII1() + "\n(press enter to see the result)");
         scanner.nextLine();
         playLaunchSound();
         String verdict = launch.isMissionSuccessful(myRocket, myMission);
-        if (myMission.getName().equals("Secret mission")){
+        this.hasDisappeared = launch.getHasDisappeared();
+        if (myMission.getName().equals("Secret mission")) {
             utils.animateTimeTravel();
             System.out.println("(press enter to see the result)");
             scanner.nextLine();
             playImpactSound();
             utils.clearConsole();
+            System.out.flush();
             System.out.println(verdict);
+            System.out.println("\n(press enter to return to main menu)");
+            scanner.nextLine();
+            mainMenu();
         } else {
-        System.out.println(verdict);
-        reports.add(verdict);
-        System.out.println("\n(press enter to return to main menu)");
-        scanner.nextLine();
-        mainMenu();
+            utils.clearConsole();
+            System.out.println(verdict);
+            reports.add(launch.getLastReport());
+            System.out.println("\n(press enter to return to main menu)");
+            scanner.nextLine();
+            mainMenu();
         }
     }
 
@@ -455,6 +468,7 @@ public class Simulator {
             scanner.nextLine();
             mainMenu();
         } else {
+            utils.clearConsole();
             System.out.println(ascii.ASCIIHistory());
             int nbReports = 0;
             for (String r : reports){

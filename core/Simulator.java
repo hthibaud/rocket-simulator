@@ -447,14 +447,15 @@ public class Simulator {
     //prints all the previous launches
     public void historyMenu(){
         playClickSound();
-        System.out.println(ascii.ASCIIHistory());
         if (reports.isEmpty()){
             utils.clearConsole();
+            System.out.println(ascii.ASCIIHistory());
             System.out.println("You don't have any report yet.");
             System.out.println("\n(press enter to return to main menu)");
             scanner.nextLine();
             mainMenu();
         } else {
+            System.out.println(ascii.ASCIIHistory());
             int nbReports = 0;
             for (String r : reports){
                 nbReports++;
@@ -515,7 +516,7 @@ public class Simulator {
     public void quit(){
         stopBackgroundMusic();
         utils.clearConsole();
-        System.out.println("Bye!");
+        System.out.println(ascii.ASCIIBye());
         System.exit(0);
     }
 }

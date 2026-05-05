@@ -3,6 +3,7 @@ package core;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 import models.booster.Booster;
 import models.capsule.Capsule;
 import models.launcher.Launcher;
@@ -27,7 +28,7 @@ public class Simulator {
     public void startMenu(){
         playBackgroundMusic();
         utils.clearConsole();
-        System.out.println("################# WELCOME TO YOUR ROCKET SIMULATOR #################");
+        System.out.println(ascii.ASCIIRocketSimu());
         System.out.println (ascii.ASCIIRocket());
         System.out.println ("Start?");
         scanner.nextLine();
@@ -37,7 +38,7 @@ public class Simulator {
         public void mainMenu(){
         playClickSound();
         utils.clearConsole();
-        System.out.println("################# MAIN MENU #################\n");
+        System.out.println(ascii.ASCIIMainMenu());
         System.out.println("1. See missions");
         System.out.println("2. See available components");
         System.out.println("3. Build your rocket");
@@ -63,7 +64,7 @@ public class Simulator {
     public void missionsMenu(){
         playClickSound();
         utils.clearConsole();
-        System.out.println("################# MISSIONS #################");
+        System.out.println(ascii.ASCIIMissions());
         System.out.println("\n1. "+ catalog.getOrbit().toString());
         System.out.println("\n2. "+ catalog.getISS().toString());
         System.out.println("\n3. "+ catalog.getMoon().toString());
@@ -79,7 +80,7 @@ public class Simulator {
     public void componentsMenu(){
         playClickSound();
         utils.clearConsole();
-        System.out.println("################# AVAILABLE COMPONENTS #################\n");
+        System.out.println(ascii.ASCIIComponents());
         System.out.println("1. Launchers");
         System.out.println("2. Capsules");
         System.out.println("3. Boosters");
@@ -102,7 +103,7 @@ public class Simulator {
     public void buildRocketMenu(){
         playClickSound();
         utils.clearConsole();
-        System.out.println("################# BUILD YOUR ROCKET #################\n");
+        System.out.println(ascii.ASCIIBuild());
         System.out.println("1. Launchers");
         System.out.println("2. Capsules");
         System.out.println("3. Boosters");
@@ -127,6 +128,7 @@ public class Simulator {
     public void launchRocket(){
         utils.clearConsole();
         if (myRocket == null) {
+        System.out.println(ascii.ASCIINope());
         System.out.println("Build a rocket first!");
         scanner.nextLine();
         mainMenu();
@@ -139,7 +141,7 @@ public class Simulator {
     public void launchersMenu(){
         playClickSound();
         utils.clearConsole();
-        System.out.println("################# AVAILABLE LAUNCHERS #################\n");
+        System.out.println(ascii.ASCIILaunchers());
         System.out.println("\n1. "+ catalog.getFalcon9().toString());
         System.out.println("\n2. "+ catalog.getArianeV().toString());
         System.out.println("\n3. "+ catalog.getSaturneV().toString());
@@ -154,7 +156,8 @@ public class Simulator {
     public void launchersBuildMenu(){
         playClickSound();
         utils.clearConsole();
-        System.out.println("################# AVAILABLE LAUNCHERS (for build) #################\n");
+        System.out.println(ascii.ASCIILaunchers());
+        System.out.println("\n(for build)");
         System.out.println("\n1. "+ catalog.getFalcon9().toString());
         System.out.println("\n2. "+ catalog.getArianeV().toString());
         System.out.println("\n3. "+ catalog.getSaturneV().toString());
@@ -181,7 +184,7 @@ public class Simulator {
     public void capsulesMenu(){
         playClickSound();
         utils.clearConsole();
-        System.out.println("################# AVAILABLE CAPSULES #################\n");
+        System.out.println(ascii.ASCIICapsules());
         System.out.println("\n1. "+ catalog.getCargoDragon().toString());
         System.out.println("\n2. "+ catalog.getCrewDragon().toString());
         System.out.println("\n3. "+ catalog.getApollo().toString());
@@ -196,7 +199,8 @@ public class Simulator {
     public void capsulesBuildMenu(){
         playClickSound();
         utils.clearConsole();
-        System.out.println("################# AVAILABLE CAPSULES (for build) #################\n");
+        System.out.println(ascii.ASCIICapsules());
+        System.out.println("\n(for build)");
         System.out.println("\n1. "+ catalog.getCargoDragon().toString());
         System.out.println("\n2. "+ catalog.getCrewDragon().toString());
         System.out.println("\n3. "+ catalog.getApollo().toString());
@@ -223,7 +227,7 @@ public class Simulator {
     public void boostersMenu(){
         playClickSound();
         utils.clearConsole();
-        System.out.println("################# AVAILABLE BOOSTERS #################\n");
+        System.out.println(ascii.ASCIIBoosters());
         System.out.println("\n1. "+ catalog.getBE3().toString());
         System.out.println("\n2. "+ catalog.getEAP().toString());
         System.out.println("\n3. "+ catalog.getSRB().toString());
@@ -237,7 +241,8 @@ public class Simulator {
     public void boostersBuildMenu(){
         playClickSound();
         utils.clearConsole();
-        System.out.println("################# AVAILABLE BOOSTERS (for build) #################\n");
+        System.out.println(ascii.ASCIIBoosters());
+        System.out.println("\n(for build)");
         System.out.println("\n1. "+ catalog.getBE3().toString());
         System.out.println("\n2. "+ catalog.getEAP().toString());
         System.out.println("\n3. "+ catalog.getSRB().toString());
@@ -262,7 +267,7 @@ public class Simulator {
     public void missionChoiceMenu(){
         playClickSound();
         utils.clearConsole();
-        System.out.println("################# CHOOSE YOUR MISSION #################\n");
+        System.out.println(ascii.ASCIIChooseMission());
         System.out.println("\n1. "+ catalog.getOrbit().toString());
         System.out.println("\n2. "+ catalog.getISS().toString());
         System.out.println("\n3. "+ catalog.getMoon().toString());
@@ -384,6 +389,7 @@ public class Simulator {
 
         if (myRocket == null){
             playFailSound();
+            System.out.println(ascii.ASCIINope());
             System.out.println("You can't build your rocket, you missed some parts. (press enter to continue)");
             scanner.nextLine();
             buildRocketMenu();
@@ -391,6 +397,7 @@ public class Simulator {
         }
         playSuccessSound();
         playBuildSound();
+        System.out.println(ascii.ASCIISuccess());
         utils.clearConsole();
         System.out.println("\nYour rocket " + name + " is ready!");
         System.out.println(myRocket.toString());
@@ -440,6 +447,7 @@ public class Simulator {
     //prints all the previous launches
     public void historyMenu(){
         playClickSound();
+        System.out.println(ascii.ASCIIHistory());
         if (reports.isEmpty()){
             utils.clearConsole();
             System.out.println("You don't have any report yet.");

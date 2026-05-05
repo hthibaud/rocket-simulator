@@ -332,8 +332,10 @@ public class SimulatorController {
                 "-fx-font-size: 14; -fx-background-color: #06e806; -fx-text-fill: #000000; -fx-font-weight: bold;");
         finishButton.setOnMouseEntered(e -> finishButton.setStyle("-fx-font-size: 14; -fx-background-color: #04ab04; -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 15 30; -fx-cursor: hand;"));
         finishButton.setOnMouseExited(e -> finishButton.setStyle("-fx-font-size: 14; -fx-background-color: #06c606; -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 15 30;"));
-        finishButton.setOnAction(e -> playClickSound());
         finishButton.setOnAction(e -> {
+
+            playClickSound();
+
             String userRocketName = nameChoice.getText();
 
             if (userRocketName == null || userRocketName.isBlank()) {
@@ -359,6 +361,7 @@ public class SimulatorController {
     }
 
     public void launchRocket() {
+        playClickSound();
         VBox layout = new VBox(20);
         layout.setPadding(new Insets(30));
         layout.setAlignment(Pos.CENTER);
@@ -457,14 +460,13 @@ public class SimulatorController {
                     + "-fx-background-radius: 3; "
                     + "-fx-padding: 10;"
             ));
-        button.addEventHandler(ActionEvent.ACTION, e -> playImpactSound());
+        button.addEventHandler(ActionEvent.ACTION, e -> playLaunchSound());
         button.setOnAction(e -> executeSecretLaunch());
         return button;
     }
 
     public void executeSecretLaunch() {
 
-        playImpactSound();
         String videoPath = "/home/22rakoon/Documents/YNOV/All-Prog/PROJETS/FUSEE-SIMU-JAVA (+UITest)/launch.GIF";
         File videoFile = new File(videoPath);
 
@@ -485,9 +487,8 @@ public class SimulatorController {
         applyEarthBackground(videoLayout);
 
         Button skipButton = new Button("");
-        
+                
         skipButton.setOnAction(e -> showLaunchResult(getSecretVerdict()));
-
         videoLayout.getChildren().add(skipButton);
         primaryStage.setScene(new Scene(videoLayout, 900, 600));
     }
@@ -539,6 +540,7 @@ public class SimulatorController {
     }
 
     public String getSecretVerdict(){
+        playImpactSound();
         return "You never came back.";
     }
 
@@ -602,7 +604,6 @@ public class SimulatorController {
         nextButton.setOnMouseEntered(e -> nextButton.setStyle("-fx-background-color: #04ab04; -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 15 30; -fx-cursor: hand;"));
         nextButton.setOnMouseExited(e -> nextButton.setStyle("-fx-background-color: #06c606; -fx-text-fill: black; -fx-font-weight: bold; -fx-padding: 15 30;"));
 
-        nextButton.setOnAction(e -> playClickSound());
         nextButton.setOnAction(e -> launchRocket());
         Button backButton = createBackButton("Go to main menu");
 
@@ -678,16 +679,19 @@ public class SimulatorController {
     
     public void playClickSound() {
     AudioClip sound = new AudioClip(new File("src/main/resources/sounds/clickSFX.wav").toURI().toString());
+    sound.setVolume(0.6); 
     sound.play();
     }
 
     public void playBuildSound() {
     AudioClip sound = new AudioClip(new File("src/main/resources/sounds/buildSFX.wav").toURI().toString());
+    sound.setVolume(0.3); 
     sound.play();
     }
 
     public void playSuccessSound() {
     AudioClip sound = new AudioClip(new File("src/main/resources/sounds/successSFX.wav").toURI().toString());
+    sound.setVolume(0.3); 
     sound.play();
     }  
 
@@ -714,7 +718,7 @@ public void playBackgroundMusic() {
         this.backgroundMusic = new MediaPlayer(media);
         
         this.backgroundMusic.setCycleCount(MediaPlayer.INDEFINITE);
-        this.backgroundMusic.setVolume(0.8); 
+        this.backgroundMusic.setVolume(1); 
         
         this.backgroundMusic.play();
                 

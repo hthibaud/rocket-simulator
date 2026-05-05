@@ -381,6 +381,7 @@ public class Simulator {
     public Rocket finishRocket(){
         playClickSound();
         utils.clearConsole();
+        System.out.println(ascii.ASCIIName());
         System.out.println("How do you want to name your rocket?");
         String name = scanner.nextLine();
         builder.setName(name);
@@ -397,8 +398,8 @@ public class Simulator {
         }
         playSuccessSound();
         playBuildSound();
-        System.out.println(ascii.ASCIISuccess());
         utils.clearConsole();
+        System.out.println(ascii.ASCIISuccess());
         System.out.println("\nYour rocket " + name + " is ready!");
         System.out.println(myRocket.toString());
         System.out.println("(press enter to return to menu)");
@@ -428,7 +429,6 @@ public class Simulator {
         playLaunchSound();
         String verdict = launch.isMissionSuccessful(myRocket, myMission);
         if (myMission.getName().equals("Secret mission")){
-            playLaunchSound();
             utils.animateTimeTravel();
             System.out.println("(press enter to see the result)");
             scanner.nextLine();

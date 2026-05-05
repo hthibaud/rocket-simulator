@@ -9,6 +9,7 @@ import models.launcher.Launcher;
 import models.mission.Mission;
 import utils.ASCII;
 import utils.Catalog;
+import utils.SoundManager;
 import utils.utils;
 
 public class Simulator {
@@ -24,6 +25,7 @@ public class Simulator {
     
     //starts the first menu with a rocket ASCII art
     public void startMenu(){
+        playBackgroundMusic();
         utils.clearConsole();
         System.out.println("################# WELCOME TO YOUR ROCKET SIMULATOR #################");
         System.out.println (ascii.ASCIIRocket());
@@ -33,6 +35,7 @@ public class Simulator {
 
         //starts the main menu to choose what you want to do
         public void mainMenu(){
+        playClickSound();
         utils.clearConsole();
         System.out.println("################# MAIN MENU #################\n");
         System.out.println("1. See missions");
@@ -54,11 +57,11 @@ public class Simulator {
             case "6" -> quit();
             default -> mainMenu();
         }
-
     }
 
     //all missions print
     public void missionsMenu(){
+        playClickSound();
         utils.clearConsole();
         System.out.println("################# MISSIONS #################");
         System.out.println("\n1. "+ catalog.getOrbit().toString());
@@ -74,6 +77,7 @@ public class Simulator {
 
     //all components print
     public void componentsMenu(){
+        playClickSound();
         utils.clearConsole();
         System.out.println("################# AVAILABLE COMPONENTS #################\n");
         System.out.println("1. Launchers");
@@ -96,6 +100,7 @@ public class Simulator {
 
     //build the rocket menu, with all launchers, capsules, and boosters
     public void buildRocketMenu(){
+        playClickSound();
         utils.clearConsole();
         System.out.println("################# BUILD YOUR ROCKET #################\n");
         System.out.println("1. Launchers");
@@ -120,20 +125,19 @@ public class Simulator {
 
     //launches the rocket if you have one (you have to choose a mission to actually launch the rocket)
     public void launchRocket(){
-
         utils.clearConsole();
         if (myRocket == null) {
         System.out.println("Build a rocket first!");
         scanner.nextLine();
         mainMenu();
         }
-
         missionChoiceMenu();
     }
 
 
     //all launchers print
     public void launchersMenu(){
+        playClickSound();
         utils.clearConsole();
         System.out.println("################# AVAILABLE LAUNCHERS #################\n");
         System.out.println("\n1. "+ catalog.getFalcon9().toString());
@@ -148,6 +152,7 @@ public class Simulator {
 
     //menu to build using the available launchers
     public void launchersBuildMenu(){
+        playClickSound();
         utils.clearConsole();
         System.out.println("################# AVAILABLE LAUNCHERS (for build) #################\n");
         System.out.println("\n1. "+ catalog.getFalcon9().toString());
@@ -174,6 +179,7 @@ public class Simulator {
 
     //all capsules print
     public void capsulesMenu(){
+        playClickSound();
         utils.clearConsole();
         System.out.println("################# AVAILABLE CAPSULES #################\n");
         System.out.println("\n1. "+ catalog.getCargoDragon().toString());
@@ -188,6 +194,7 @@ public class Simulator {
 
     //menu to build using the available capsule
     public void capsulesBuildMenu(){
+        playClickSound();
         utils.clearConsole();
         System.out.println("################# AVAILABLE CAPSULES (for build) #################\n");
         System.out.println("\n1. "+ catalog.getCargoDragon().toString());
@@ -214,6 +221,7 @@ public class Simulator {
 
     //all boosters print
     public void boostersMenu(){
+        playClickSound();
         utils.clearConsole();
         System.out.println("################# AVAILABLE BOOSTERS #################\n");
         System.out.println("\n1. "+ catalog.getBE3().toString());
@@ -227,7 +235,8 @@ public class Simulator {
 
     //menu to build using the available boosters
     public void boostersBuildMenu(){
-                utils.clearConsole();
+        playClickSound();
+        utils.clearConsole();
         System.out.println("################# AVAILABLE BOOSTERS (for build) #################\n");
         System.out.println("\n1. "+ catalog.getBE3().toString());
         System.out.println("\n2. "+ catalog.getEAP().toString());
@@ -251,6 +260,7 @@ public class Simulator {
 
     //choosing mission menu
     public void missionChoiceMenu(){
+        playClickSound();
         utils.clearConsole();
         System.out.println("################# CHOOSE YOUR MISSION #################\n");
         System.out.println("\n1. "+ catalog.getOrbit().toString());
@@ -280,11 +290,13 @@ public class Simulator {
 
     //confirmation print for launcher choice
     public void confirmLauncherChoice(Launcher launcher){
+        playClickSound();
         System.out.println("Confirm choice ? : " + launcher.getName());
         System.out.println("(type yes or no)");
         String choice = scanner.nextLine();
         switch(choice){
             case "yes" -> {
+                playClickSound();
                 utils.clearConsole();
                 builder.addLauncherToRocket(launcher);
             }
@@ -299,11 +311,13 @@ public class Simulator {
 
     //confirmation print for capsule choice
     public void confirmCapsuleChoice(Capsule capsule){
+        playClickSound();
         System.out.println("Confirm choice ? : " + capsule.getName());
         System.out.println("(type yes or no)");
         String choice = scanner.nextLine();
         switch(choice){
             case "yes" -> {
+                playClickSound();
                 utils.clearConsole();
                 builder.addCapsuleToRocket(capsule);
             }
@@ -318,11 +332,13 @@ public class Simulator {
 
     //confirmation print for booster choice
     public void confirmBoosterChoice(Booster booster){
+        playClickSound();
         System.out.println("Confirm choice ? : " + booster.getName());
                 System.out.println("(type yes or no)");
         String choice = scanner.nextLine();
         switch(choice){
             case "yes" -> {
+                playClickSound();
                 utils.clearConsole();
                 builder.addBoosterToRocket(booster);
             }
@@ -337,13 +353,13 @@ public class Simulator {
 
     //confirmation print for mission choice
     public void confirmMissionChoice(Mission mission){
-
         System.out.println("Confirm choice ? : " + mission.getName());
         System.out.println("(type yes or no)");
         String choice = scanner.nextLine();
 
         switch(choice){
             case "yes" -> {
+                playClickSound();
                 this.myMission = mission;
                 startLaunch();
             }
@@ -358,7 +374,7 @@ public class Simulator {
 
     //asks for the name of your rocket and builds it using the builder
     public Rocket finishRocket(){
-
+        playClickSound();
         utils.clearConsole();
         System.out.println("How do you want to name your rocket?");
         String name = scanner.nextLine();
@@ -367,19 +383,20 @@ public class Simulator {
         this.myRocket = builder.build();
 
         if (myRocket == null){
+            playFailSound();
             System.out.println("You can't build your rocket, you missed some parts. (press enter to continue)");
             scanner.nextLine();
             buildRocketMenu();
             return null;
         }
-
+        playSuccessSound();
+        playBuildSound();
         utils.clearConsole();
         System.out.println("\nYour rocket " + name + " is ready!");
         System.out.println(myRocket.toString());
         System.out.println("(press enter to return to menu)");
         scanner.nextLine();
         mainMenu();
-
 
         return myRocket;
     }
@@ -390,19 +407,25 @@ public class Simulator {
 
         Launch launch = new Launch(myRocket, myMission);
 
+        playBeepSound();
         System.out.println("Your mission is launched in 3...");
         try { Thread.sleep(1000); } catch (InterruptedException e) {}
+        playBeepSound();
         utils.clearConsole();
         System.out.println("Your mission is launched in 2...");
         try { Thread.sleep(1000); } catch (InterruptedException e) {}
+        playBeepSound();
         utils.clearConsole();
         System.out.println("Your mission is launched in 1...    (press enter to see the result)");
         scanner.nextLine();
+        playLaunchSound();
         String verdict = launch.isMissionSuccessful(myRocket, myMission);
         if (myMission.getName().equals("Secret mission")){
+            playLaunchSound();
             utils.animateTimeTravel();
             System.out.println("(press enter to see the result)");
             scanner.nextLine();
+            playImpactSound();
             utils.clearConsole();
             System.out.println(verdict);
         } else {
@@ -416,6 +439,7 @@ public class Simulator {
 
     //prints all the previous launches
     public void historyMenu(){
+        playClickSound();
         if (reports.isEmpty()){
             utils.clearConsole();
             System.out.println("You don't have any report yet.");
@@ -434,8 +458,54 @@ public class Simulator {
         }
     }
 
-    //quits the simulator
+    //Plays launch sound
+    public static void playLaunchSound(){
+        SoundManager.playSound("/utils/sounds/rocketLaunchSFX.wav");
+    }
+
+    //Plays click sound
+    public static void playClickSound(){
+        SoundManager.playSound("/utils/sounds/clickSFX.wav");
+    }
+
+    //Plays success sound (build)
+    public static void playSuccessSound(){
+        SoundManager.playSound("/utils/sounds/successSFX.wav");
+    }
+
+    //Plays fail sound (build)
+    public static void playFailSound(){
+        SoundManager.playSound("/utils/sounds/failSFX.wav");
+    }
+
+    //Plays impact sound
+    public static void playImpactSound(){
+        SoundManager.playSound("/utils/sounds/impactSFX.wav");
+    }
+
+    //Plays build sound
+    public static void playBuildSound(){
+        SoundManager.playSound("/utils/sounds/buildSFX.wav");
+    }
+
+    //Plays beep sound
+    public static void playBeepSound(){
+        SoundManager.playSound("/utils/sounds/beepSFX.wav");
+    }
+
+    //Starts background music
+    public static void playBackgroundMusic(){
+        SoundManager.startBackgroundMusic("/utils/sounds/FairyTherapy-This_is_space.wav");
+    }
+
+    //Stops background music
+    public static void stopBackgroundMusic(){
+        SoundManager.stopMusic();
+    }
+
+    //stops the music and quits the simulator
     public void quit(){
+        stopBackgroundMusic();
         utils.clearConsole();
         System.out.println("Bye!");
         System.exit(0);

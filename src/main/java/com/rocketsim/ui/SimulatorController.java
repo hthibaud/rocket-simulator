@@ -44,6 +44,7 @@ public class SimulatorController {
     private Builder builder = new Builder();
     private Rocket currentRocket;
     private List<String> launchHistory = new ArrayList<>();
+    private boolean hasDisappeared = false;
 
     public void setPrimaryStage(Stage stage) {
         this.primaryStage = stage;
@@ -361,7 +362,6 @@ public class SimulatorController {
     }
 
     public void launchRocket() {
-        playClickSound();
         VBox layout = new VBox(20);
         layout.setPadding(new Insets(30));
         layout.setAlignment(Pos.CENTER);
@@ -375,7 +375,7 @@ public class SimulatorController {
             TextArea details = new TextArea("Build a rocket first.");
             details.setEditable(false);
             details.setPrefHeight(200);
-            details.setStyle("-fx-control-inner-background: rgba(19, 19, 19, 0.8); -fx-text-fill: white; -fx-font-family: 'Courier New';");
+            details.setStyle("-fx-font-size: 20; -fx-control-inner-background: rgba(19, 19, 19, 0.8); -fx-text-fill: white; -fx-font-family: 'Courier New';");
 
             Button backButton = createBackButton("Back to Menu");
             backButton.setOnAction(e -> primaryStage.setScene(mainScene));
@@ -407,25 +407,24 @@ public class SimulatorController {
 
     private Button createMissionButton(String text, Mission mission) {
         Button button = new Button(text);
-        button.setPrefWidth(600);
+        button.setPrefWidth(300);
         button.setPrefHeight(60);
-        button.setStyle("-fx-font-size: 16; -fx-background-color: #000000; -fx-text-fill: #FFFFFF;");
         button.setStyle(
-                    "-fx-font-size: 14; "
+                    "-fx-font-size: 16; "
                     + "-fx-font-weight: bold; "
                     + "-fx-text-fill: #ffffff; "
-                    + "-fx-background-color: #000000; "
+                    + "-fx-background-color: #000000a8; "
                     + "-fx-border-radius: 3; "
                     + "-fx-background-radius: 3; "
                     + "-fx-padding: 10; "
                     + "-fx-cursor: hand;"
             );
-            button.setOnMouseEntered(e -> button.setStyle(button.getStyle() + "-fx-background-color: #000529;"));
+            button.setOnMouseEntered(e -> button.setStyle(button.getStyle() + "-fx-background-color: #000529af;"));
             button.setOnMouseExited(e -> button.setStyle(
-                    "-fx-font-size: 14; "
+                    "-fx-font-size: 16; "
                     + "-fx-font-weight: bold; "
                     + "-fx-text-fill: #ffffff; "
-                    + "-fx-background-color: #000000; "
+                    + "-fx-background-color: #000000a8; "
                     + "-fx-border-radius: 3; "
                     + "-fx-background-radius: 3; "
                     + "-fx-padding: 10;"
@@ -437,25 +436,24 @@ public class SimulatorController {
 
     private Button createSecretButton(String text, Mission mission) {
         Button button = new Button(text);
-        button.setPrefWidth(600);
+        button.setPrefWidth(300);
         button.setPrefHeight(60);
-        button.setStyle("-fx-font-size: 16; -fx-background-color: #000000; -fx-text-fill: #FFFFFF;");
         button.setStyle(
-                    "-fx-font-size: 14; "
+                    "-fx-font-size: 16; "
                     + "-fx-font-weight: bold; "
                     + "-fx-text-fill: #ffffff; "
-                    + "-fx-background-color: #000000; "
+                    + "-fx-background-color: #000000a8; "
                     + "-fx-border-radius: 3; "
                     + "-fx-background-radius: 3; "
                     + "-fx-padding: 10; "
                     + "-fx-cursor: hand;"
             );
-            button.setOnMouseEntered(e -> button.setStyle(button.getStyle() + "-fx-background-color: #000529;"));
+            button.setOnMouseEntered(e -> button.setStyle(button.getStyle() + "-fx-background-color: #000529af;"));
             button.setOnMouseExited(e -> button.setStyle(
-                    "-fx-font-size: 14; "
+                    "-fx-font-size: 16; "
                     + "-fx-font-weight: bold; "
                     + "-fx-text-fill: #ffffff; "
-                    + "-fx-background-color: #000000; "
+                    + "-fx-background-color: #000000a8; "
                     + "-fx-border-radius: 3; "
                     + "-fx-background-radius: 3; "
                     + "-fx-padding: 10;"
@@ -494,16 +492,28 @@ public class SimulatorController {
     }
 
     private void executeLaunch(Mission mission) {
-        Launch launch = new Launch(currentRocket, mission);
-        String verdict = launch.isMissionSuccessful(currentRocket, mission);
-        launchHistory.add(verdict);
-        showLaunchResult(verdict);
+        if (hasDisappeared) {
+            String verdict = "You can't go on missions once you discovered the secret. Remember? You never came back.";
+            launchHistory.add(verdict);
+            showLaunchResult(verdict);
+        } else if ("Secret mission".equals(mission.getName())) {
+            hasDisappeared = true;
+            String verdict = "Report of the " + java.time.LocalDate.now().toString() + ": You never came back.";
+            launchHistory.add(verdict);
+            showLaunchResult(verdict);
+        } else {
+            Launch launch = new Launch(currentRocket, mission);
+            String verdict = launch.isMissionSuccessful(currentRocket, mission);
+            launchHistory.add(verdict);
+            showLaunchResult(verdict);
+        }
     }
 
     private void showLaunchResult(String verdict) {
         VBox layout = new VBox(20);
         layout.setPadding(new Insets(30));
         layout.setAlignment(Pos.TOP_CENTER);
+
         applyEarthBackground(layout);
 
         Label title = new Label("LAUNCH RESULT");
@@ -513,7 +523,7 @@ public class SimulatorController {
         resultArea.setWrapText(true);
         resultArea.setEditable(false);
         resultArea.setPrefRowCount(20);
-        resultArea.setStyle("-fx-control-inner-background: #02020280; -fx-text-fill: #FFFFFF; -fx-font-family: 'Courier New'; -fx-font-size: 20;");
+        resultArea.setStyle("-fx-control-inner-background: rgba(26, 26, 26, 0.8); -fx-text-fill: #FFFFFF; -fx-font-family: 'Courier New'; -fx-font-size: 20;");
 
         ScrollPane scrollPane = new ScrollPane(resultArea);
         scrollPane.setFitToWidth(true);
@@ -541,7 +551,12 @@ public class SimulatorController {
 
     public String getSecretVerdict(){
         playImpactSound();
-        return "You never came back.";
+        if (hasDisappeared) {
+            return "Report of the " + java.time.LocalDate.now().toString() + ": You can't go on missions once you discovered the secret. Remember? You never came back.";
+        } else {
+            hasDisappeared = true;
+            return "Report of the " + java.time.LocalDate.now().toString() + ": You never came back.";
+        }
     }
 
     public void showHistory() {

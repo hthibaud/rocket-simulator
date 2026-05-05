@@ -14,13 +14,15 @@ public class Launch {
         this.mission = mission;
     }
 
-    public double calculateMissionCost(Rocket myRocket, Mission myMission) {
-        double fuelNeeded = myMission.calculateFuelNeeded(myRocket, myMission);
-        return myRocket.getTotalPrice() + ((fuelNeeded * 1200) / 1_000_000);
-    }
+        //calculates the cost of the mission
+        public double calculateMissionCost(Rocket myRocket, Mission myMission) {
+            double fuelNeeded = myMission.calculateFuelNeeded(myRocket, myMission);
+            return myRocket.getTotalPrice() + ((fuelNeeded * 1200) / 1_000_000);
+        }
 
     public String isMissionSuccessful(Rocket myRocket, Mission myMission) {
         String verdictMessage;
+
         if (!verifyMissionCompatibility(myRocket, myMission)) {
             verdictMessage = "Your mission to " + myMission.getName() + " has been canceled.\n CAUSE: Your capsule had to be habitated for this mission.";
         } else if (!verifyFuel(myRocket, myMission)) {
@@ -33,8 +35,7 @@ public class Launch {
             if (Math.random() < 0.05) {
                 return "Report: Failure. CAUSE: Unforeseen technical issue.";
             } else {
-                //verdictMessage = "Your mission to " + myMission.getName() + " is a SUCCESS! \nThis mission cost " + calculateMissionCost(myRocket, myMission) + " Millions€";
-                verdictMessage = String.format("Your mission to %s is a SUCCESS! \nThis mission cost %.2f Millions€", myMission.getName(), calculateMissionCost(myRocket, myMission));
+                verdictMessage = String.format("Your mission to %s is a SUCCESS! \nThis mission cost %.2f Millions€. \nRocket: %s", myMission.getName(), calculateMissionCost(myRocket, myMission), myRocket.getName());
             }
         } else {
             verdictMessage = "Problem here.";

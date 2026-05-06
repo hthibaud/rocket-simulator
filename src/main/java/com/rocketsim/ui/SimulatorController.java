@@ -79,7 +79,7 @@ public class SimulatorController {
         applyEarthBackground(layout);
 
         Label titleLabel = new Label("AVAILABLE MISSIONS");
-        titleLabel.setStyle("-fx-font-size: 25; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
+        titleLabel.setStyle("-fx-font-size: 40; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
         titleLabel.setMaxWidth(Double.MAX_VALUE);
         titleLabel.setAlignment(Pos.CENTER);
 
@@ -111,7 +111,7 @@ public class SimulatorController {
         layout.setPadding(new Insets(20));
 
         Label titleLabel = new Label("AVAILABLE COMPONENTS");
-        titleLabel.setStyle("-fx-font-size: 25; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
+        titleLabel.setStyle("-fx-font-size: 40; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
         titleLabel.setMaxWidth(Double.MAX_VALUE);
         titleLabel.setAlignment(Pos.CENTER);
 
@@ -155,7 +155,7 @@ public class SimulatorController {
         VBox layout = new VBox(20);
         layout.setPadding(new Insets(40));
 
-        Label titleLabel = new Label("BUILD  YOUR ROCKET");
+        Label titleLabel = new Label("BUILD YOUR ROCKET");
         titleLabel.setStyle("-fx-font-size: 40; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
         titleLabel.setMaxWidth(Double.MAX_VALUE);
         titleLabel.setAlignment(Pos.CENTER);
@@ -494,7 +494,6 @@ public class SimulatorController {
     private void executeLaunch(Mission mission) {
         if (hasDisappeared) {
             String verdict = "You can't go on missions once you discovered the secret. Remember? You never came back.";
-            launchHistory.add(verdict);
             showLaunchResult(verdict);
         } else if ("Secret mission".equals(mission.getName())) {
             hasDisappeared = true;
@@ -552,7 +551,7 @@ public class SimulatorController {
     public String getSecretVerdict(){
         playImpactSound();
         if (hasDisappeared) {
-            return "Report of the " + java.time.LocalDate.now().toString() + ": You can't go on missions once you discovered the secret. Remember? You never came back.";
+            return "You can't go on missions once you discovered the secret. Remember? You never came back.";
         } else {
             hasDisappeared = true;
             return "Report of the " + java.time.LocalDate.now().toString() + ": You never came back.";
@@ -565,7 +564,7 @@ public class SimulatorController {
         applyEarthBackground(layout);
 
         Label titleLabel = new Label("LAUNCH HISTORY");
-        titleLabel.setStyle("-fx-font-size: 25; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
+        titleLabel.setStyle("-fx-font-size: 40; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
         titleLabel.setMaxWidth(Double.MAX_VALUE);
         titleLabel.setAlignment(Pos.CENTER);
 
@@ -725,22 +724,22 @@ public class SimulatorController {
     sound.play();
     }  
     
-public void playBackgroundMusic() {
-    try {
-        String path = getClass().getResource("/sounds/FairyTherapy-This_is_space.wav").toExternalForm();
-        Media media = new Media(path);
-        
-        this.backgroundMusic = new MediaPlayer(media);
-        
-        this.backgroundMusic.setCycleCount(MediaPlayer.INDEFINITE);
-        this.backgroundMusic.setVolume(1); 
-        
-        this.backgroundMusic.play();
-                
-    } catch (Exception e) {
-        System.err.println("Error during loading music : " + e.getMessage());
-        e.printStackTrace();
+    public void playBackgroundMusic() {
+        try {
+            String path = getClass().getResource("/sounds/FairyTherapy-This_is_space.wav").toExternalForm();
+            Media media = new Media(path);
+            
+            this.backgroundMusic = new MediaPlayer(media);
+            
+            this.backgroundMusic.setCycleCount(MediaPlayer.INDEFINITE);
+            this.backgroundMusic.setVolume(1); 
+            
+            this.backgroundMusic.play();
+                    
+        } catch (Exception e) {
+            System.err.println("Error during loading music : " + e.getMessage());
+            e.printStackTrace();
+        }
     }
-}
     
 }

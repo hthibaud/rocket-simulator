@@ -56,18 +56,18 @@ public class RocketSimulatorApp extends Application {
 
         // Header
         Label titleLabel = new Label("ROCKET SIMULATOR");
-        titleLabel.setStyle("-fx-font-size: 40; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
+        titleLabel.setStyle("-fx-font-size: 60; -fx-font-weight: bold; -fx-text-fill: #ffffff;");
         titleLabel.setMaxWidth(Double.MAX_VALUE);
         titleLabel.setAlignment(Pos.CENTER);
         VBox headerBox = new VBox(titleLabel);
-        headerBox.setPadding(new Insets(20));
+        headerBox.setPadding(new Insets(50, 10, 50, 10));
         headerBox.setStyle("-fx-background-color: #00000050;");
         headerBox.setPrefHeight(20);
         rootscene.setTop(headerBox);
 
         // Main Button Layout
         VBox mainBox = new VBox(10);
-        mainBox.setPadding(new Insets(80));
+        mainBox.setPadding(new Insets(20));
         mainBox.setStyle("-fx-background-color: #00000050;");
 
         // Buttons

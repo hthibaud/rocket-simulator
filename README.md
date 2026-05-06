@@ -48,6 +48,7 @@ java Program
 - The simulator is organized to support extensible rocket configurations and mission logic.
 - New models, launchers, capsules, and missions can be added by following the existing class structure.
 - The current entry point is `Program.java`, which initializes the simulation and starts hte program.
+- I didn't make a file that saves all the launches of your rockets because of the secret mission (you will see and understand during your tests), it still saves your launches in the "history" if you keep the program opened. It's made on purpose.
 
 # PS :
 

@@ -49,6 +49,7 @@ public class Builder {
         this.selectedLauncher = null;
         this.selectedCapsule = null;
         this.selectedBoosters = new ArrayList<>();
+        this.rocketName = null;
         
         return myRocket;
     }
@@ -57,10 +58,10 @@ public class Builder {
         return selectedBoosters;
     }
 
-    public void reset() {
-        this.selectedLauncher = null;
-        this.selectedCapsule = null;
-        this.selectedBoosters = new ArrayList<>();
-        this.rocketName = null;
-    }
+    // public void reset() {
+    //     this.selectedLauncher = null;
+    //     this.selectedCapsule = null;
+    //     this.selectedBoosters = new ArrayList<>();
+    //     this.rocketName = null;
+    // }
 }
